@@ -156,7 +156,7 @@ const ProfilePage = () => {
   return (
     <div className="min-h-screen bg-gray-900">
       {/* Header */}
-      <div className="bg-gray-800/50 border-b border-gray-700">
+      <div className="bg-gray-800/50 border-b border-gray-700 fixed top-0 left-0 right-0 z-10 items-center justify-center backdrop-blur-sm">
         <div className="max-w-4xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
@@ -174,7 +174,7 @@ const ProfilePage = () => {
       </div>
 
       {/* Content */}
-      <div className="max-w-2xl mx-auto px-6 py-8">
+      <div className="max-w-2xl mx-auto  px-6 pb-8 pt-40 max-md:pt-30">
         <div className="bg-gray-800/50 border border-gray-700 rounded-2xl p-8 backdrop-blur-sm">
           {/* Messages */}
           {errors.general && (
@@ -278,7 +278,7 @@ const ProfilePage = () => {
             </div>
 
             {/* Submit Button */}
-            <div className="flex gap-4 pt-4">
+            <div className="flex max-sm:flex-col gap-4 pt-4">
               <button
                 type="button"
                 onClick={() => router.back()}

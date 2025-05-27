@@ -1,12 +1,55 @@
 "use client"
 
+import { useState, useRef, useEffect } from "react"
 import Link from "next/link"
-import { MessageSquare } from "lucide-react"
+import { MessageSquare, Menu, X } from "lucide-react"
 import { useI18n } from "../lib/i18n/hooks"
 import LanguageSwitcher from "./language-switcher"
 
 export default function Header() {
   const { t } = useI18n()
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const menuRef = useRef<HTMLDivElement>(null)
+
+  // Fermer le menu quand on clique en dehors
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsMobileMenuOpen(false)
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [])
+
+  // Fermer le menu lors du redimensionnement vers desktop
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth >= 768) { // md breakpoint
+        setIsMobileMenuOpen(false)
+      }
+    }
+
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
+  // Désactiver le scroll quand le menu mobile est ouvert
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      // Désactiver le scroll
+      document.body.style.overflow = 'hidden'
+    } else {
+      // Réactiver le scroll
+      document.body.style.overflow = 'unset'
+    }
+
+    // Cleanup : réactiver le scroll quand le composant est démonté
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isMobileMenuOpen])
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-sm border-b border-gray-800">
@@ -16,7 +59,9 @@ export default function Header() {
             <MessageSquare className="h-8 w-8 text-blue-500" />
             <span className="text-xl font-bold">{t("chat.title")}</span>
           </Link>
-          <div className="flex items-center gap-4">
+          
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-4">
             <LanguageSwitcher />
             <Link href="/login" className="text-gray-300 hover:text-white transition-colors font-medium">
               {t("navigation.login")}
@@ -27,6 +72,58 @@ export default function Header() {
             >
               {t("navigation.register")}
             </Link>
+          </div>
+
+          {/* Mobile Navigation */}
+          <div className="md:hidden flex items-center gap-2">
+            <LanguageSwitcher />
+            <div className="relative" ref={menuRef}>
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="p-2 text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
+                aria-label="Menu"
+              >
+                {isMobileMenuOpen ? (
+                  <X className="h-5 w-5" />
+                ) : (
+                  <Menu className="h-5 w-5" />
+                )}
+              </button>
+
+              {/* Mobile Full Screen Menu */}
+              {isMobileMenuOpen && (
+                <div className="fixed inset-0 top-16 h-screen bg-gray-900/95 backdrop-blur-sm z-40">
+                  <div className="h-full w-full bg-gray-800/50 border-t border-gray-700">
+                    <div className="flex flex-col h-full">
+                      {/* Menu Items */}
+                      <div className="flex-1 flex flex-col justify-center items-center space-y-8 px-6">
+                        <Link
+                          href="/login"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="w-full max-w-sm text-center py-4 px-6 text-xl font-medium text-gray-300 hover:text-white hover:bg-gray-700/50 rounded-xl transition-colors"
+                        >
+                          {t("navigation.login")}
+                        </Link>
+                        <Link
+                          href="/register"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="w-full max-w-sm text-center py-4 px-6 text-xl font-medium bg-blue-600 hover:bg-blue-700 text-white rounded-xl transition-colors"
+                        >
+                          {t("navigation.register")}
+                        </Link>
+                      </div>
+                      
+                      {/* Footer */}
+                      <div className="p-6 border-t border-gray-700">
+                        <p className="text-center text-gray-400 text-sm">
+                          © 2024 {t("chat.title")}. All rights reserved.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>

@@ -235,10 +235,10 @@ const ChatPage = () => {
   const renderMessages = () => {
     if (messages.length === 0 && !isLoading) {
       return (
-        <div className="flex min-h-[80vh] flex-col items-center justify-center max-w-4xl mx-auto px-6">
+        <div className="flex h-[80vh] max-xl:h-[78vh] flex-col items-center justify-center max-w-4xl mx-auto px-6">
           {/* Logo/Title */}
           <div className="mb-12">
-            <h1 className="text-6xl font-bold text-white mb-2 text-center">{t("chat.title")}</h1>
+            <h1 className="text-6xl max-sm:text-5xl font-bold text-white mb-2 text-center">{t("chat.title")}</h1>
             <p className="text-gray-400 text-center text-lg">{t("chat.subtitle")}</p>
           </div>
 
@@ -358,7 +358,7 @@ const ChatPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 flex flex-col">
+    <div className="min-h-full bg-gray-900 flex flex-col">
       {/* Fixed Header avec Logo et Session */}
       <div className="fixed top-0 left-0 right-0 z-10 bg-gray-900/95 backdrop-blur-sm border-b border-gray-800">
         <div className="flex items-center justify-between p-4">

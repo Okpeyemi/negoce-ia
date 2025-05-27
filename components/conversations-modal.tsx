@@ -163,7 +163,7 @@ export default function ConversationsModal({
         <div className="flex items-center justify-between p-6 border-b border-gray-700">
           <div className="flex items-center gap-3">
             <MessageSquare className="h-6 w-6 text-blue-400" />
-            <h2 className="text-xl font-semibold text-white">{t("conversations.title")}</h2>
+            <h2 className="text-xl max-md:text-lg max-sm:text-sm font-semibold text-white">{t("conversations.title")}</h2>
           </div>
           <button
             onClick={onClose}
@@ -251,32 +251,32 @@ export default function ConversationsModal({
 
                     {/* Actions */}
                     {editingId !== conversation.id && (
-                      <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            handleEditStart(conversation)
-                          }}
-                          className="p-2 text-gray-400 hover:text-blue-400 hover:bg-gray-600 rounded-lg transition-colors"
-                          title={t("conversations.edit_title")}
-                        >
-                          <Edit2 className="h-4 w-4" />
-                        </button>
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            handleDelete(conversation.id)
-                          }}
-                          disabled={deletingId === conversation.id}
-                          className="p-2 text-gray-400 hover:text-red-400 hover:bg-gray-600 rounded-lg transition-colors disabled:opacity-50"
-                          title={t("conversations.delete")}
-                        >
-                          {deletingId === conversation.id ? (
-                            <div className="w-4 h-4 border border-gray-400 border-t-transparent rounded-full animate-spin"></div>
-                          ) : (
-                            <Trash2 className="h-4 w-4" />
-                          )}
-                        </button>
+                      <div className="flex items-center gap-1 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity">
+                      <button
+                        onClick={(e) => {
+                        e.stopPropagation()
+                        handleEditStart(conversation)
+                        }}
+                        className="p-2 text-gray-400 hover:text-blue-400 hover:bg-gray-600 rounded-lg transition-colors"
+                        title={t("conversations.edit_title")}
+                      >
+                        <Edit2 className="h-4 w-4" />
+                      </button>
+                      <button
+                        onClick={(e) => {
+                        e.stopPropagation()
+                        handleDelete(conversation.id)
+                        }}
+                        disabled={deletingId === conversation.id}
+                        className="p-2 text-gray-400 hover:text-red-400 hover:bg-gray-600 rounded-lg transition-colors disabled:opacity-50"
+                        title={t("conversations.delete")}
+                      >
+                        {deletingId === conversation.id ? (
+                        <div className="w-4 h-4 border border-gray-400 border-t-transparent rounded-full animate-spin"></div>
+                        ) : (
+                        <Trash2 className="h-4 w-4" />
+                        )}
+                      </button>
                       </div>
                     )}
                   </div>
