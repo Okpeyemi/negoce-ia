@@ -257,10 +257,10 @@ const ChatPage = () => {
           onKeyDown={handleKeyDown}
           disabled={isLoading}
               />
-              <div className="flex items-center justify-between mt-3">
-          <button className="p-2 text-gray-400 hover:text-white transition-colors">
+              <div className="flex items-center justify-end mt-3">
+          {/* <button className="p-2 text-gray-400 hover:text-white transition-colors">
             <Paperclip className="h-5 w-5" />
-          </button>
+          </button> */}
           <button
             className={`p-3 ${
               isLoading ? "bg-gray-600" : messageInput.trim() ? "bg-blue-600 hover:bg-blue-700" : "bg-gray-600"
@@ -432,10 +432,10 @@ const ChatPage = () => {
                   onKeyDown={handleKeyDown}
                   disabled={isLoading}
                 />
-                <div className="flex items-center justify-between mt-3">
-                  <button className="p-2 text-gray-400 hover:text-white transition-colors cursor-pointer">
+                <div className="flex items-center justify-end mt-3">
+                  {/* <button className="p-2 text-gray-400 hover:text-white transition-colors cursor-pointer">
                     <Paperclip className="h-5 w-5" />
-                  </button>
+                  </button> */}
                   <button
                     className={`p-3 ${
                       isLoading ? "bg-gray-600" : messageInput.trim() ? "bg-blue-600 hover:bg-blue-700" : "bg-gray-600"
