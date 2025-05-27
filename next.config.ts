@@ -1,0 +1,18 @@
+import type { NextConfig } from "next"
+
+const nextConfig: NextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  images: {
+    unoptimized: true,
+  },
+  experimental: {
+    // Activer les fonctionnalités expérimentales si nécessaire
+  },
+}
+
+export default nextConfig

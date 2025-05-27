@@ -1,0 +1,413 @@
+{
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "cancel": "Annuler",
+    "save": "Sauvegarder",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "create": "Créer",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "close": "Fermer",
+    "search": "Rechercher",
+    "email": "Email",
+    "password": "Mot de passe",
+    "name": "Nom",
+    "title": "Titre"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "login": "Se connecter",
+    "register": "S'inscrire",
+    "profile": "Profil",
+    "help": "Aide",
+    "contact": "Contact",
+    "privacy": "Confidentialité",
+    "terms": "Conditions",
+    "logout": "Déconnexion"
+  },
+  "auth": {
+    "login": {
+      "title": "Connexion",
+      "subtitle": "Connectez-vous à votre compte",
+      "email_label": "Email",
+      "password_label": "Mot de passe",
+      "forgot_password": "Mot de passe oublié ?",
+      "login_button": "Se connecter",
+      "google_button": "Continuer avec Google",
+      "no_account": "Pas encore de compte ?",
+      "create_account": "Créer un compte",
+      "logging_in": "Connexion...",
+      "google_loading": "Connexion en cours..."
+    },
+    "register": {
+      "title": "Inscription",
+      "subtitle": "Créez votre compte",
+      "full_name_label": "Nom complet",
+      "email_label": "Email",
+      "password_label": "Mot de passe",
+      "confirm_password_label": "Confirmer le mot de passe",
+      "register_button": "Créer mon compte",
+      "google_button": "S'inscrire avec Google",
+      "already_account": "Déjà un compte ?",
+      "sign_in": "Se connecter",
+      "creating_account": "Création du compte...",
+      "google_loading": "Inscription en cours...",
+      "accept_terms": "J'accepte les",
+      "terms_link": "conditions d'utilisation",
+      "and": "et la",
+      "privacy_link": "politique de confidentialité"
+    },
+    "forgot_password": {
+      "title": "Réinitialiser le mot de passe",
+      "subtitle": "Récupérez l'accès à votre compte",
+      "description": "Entrez votre adresse email et nous vous enverrons un lien pour réinitialiser votre mot de passe.",
+      "email_label": "Adresse email",
+      "send_button": "Envoyer le lien",
+      "sending": "Envoi en cours...",
+      "back_to_login": "Retour à la connexion",
+      "remember_password": "Vous vous souvenez de votre mot de passe ?",
+      "sign_in": "Se connecter",
+      "success_title": "Email envoyé !",
+      "success_message": "Nous avons envoyé un lien de réinitialisation à",
+      "check_spam": "Vérifiez également votre dossier spam.",
+      "resend_email": "Renvoyer l'email"
+    },
+    "reset_password": {
+      "title": "Nouveau mot de passe",
+      "subtitle": "Créer un nouveau mot de passe",
+      "description": "Choisissez un mot de passe sécurisé d'au moins 8 caractères.",
+      "password_label": "Nouveau mot de passe",
+      "confirm_password_label": "Confirmer le mot de passe",
+      "update_button": "Mettre à jour le mot de passe",
+      "updating": "Mise à jour...",
+      "success_title": "Mot de passe mis à jour !",
+      "success_message": "Votre mot de passe a été mis à jour avec succès. Vous allez être redirigé vers la page de connexion.",
+      "login_now": "Se connecter maintenant",
+      "invalid_link": "Lien de réinitialisation invalide ou expiré"
+    },
+    "callback": {
+      "connecting": "Connexion en cours...",
+      "please_wait": "Veuillez patienter pendant que nous finalisons votre connexion."
+    },
+    "errors": {
+      "auth_error": "Erreur lors de l'authentification avec Google",
+      "callback_error": "Erreur lors de la finalisation de la connexion",
+      "unexpected_error": "Une erreur inattendue s'est produite",
+      "google_error": "Erreur lors de la connexion avec Google",
+      "name_required": "Le nom est requis",
+      "email_required": "L'email est requis",
+      "email_invalid": "Email invalide",
+      "password_required": "Le mot de passe est requis",
+      "password_min_length": "Le mot de passe doit contenir au moins 8 caractères",
+      "passwords_no_match": "Les mots de passe ne correspondent pas"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Maîtrisez l'art de la négociation avec l'IA",
+      "subtitle": "Votre coach personnel alimenté par l'intelligence artificielle pour perfectionner vos compétences de négociation et réussir tous vos projets.",
+      "cta_primary": "Commencer gratuitement",
+      "cta_secondary": "J'ai déjà un compte"
+    },
+    "features": {
+      "title": "Pourquoi choisir Négociation Coach ?",
+      "subtitle": "Une approche révolutionnaire pour développer vos compétences de négociation grâce à l'intelligence artificielle.",
+      "realistic_simulations": {
+        "title": "Simulations Réalistes",
+        "description": "Entraînez-vous avec des scénarios de négociation personnalisés adaptés à votre secteur et vos objectifs spécifiques."
+      },
+      "instant_feedback": {
+        "title": "Feedback Instantané",
+        "description": "Recevez des conseils en temps réel sur votre approche, vos arguments et votre stratégie de négociation."
+      },
+      "personalized_coaching": {
+        "title": "Coaching Personnalisé",
+        "description": "Bénéficiez d'un accompagnement sur mesure qui s'adapte à votre niveau et à vos besoins d'amélioration."
+      }
+    },
+    "use_cases": {
+      "title": "Parfait pour tous vos projets",
+      "subtitle": "Que vous soyez entrepreneur, commercial ou manager, notre IA vous aide à exceller dans toutes vos négociations.",
+      "commercial": "Négociations commerciales",
+      "commercial_desc": "Fermez plus de deals avec des techniques éprouvées",
+      "funding": "Levées de fonds",
+      "funding_desc": "Convaincez les investisseurs avec un pitch parfait",
+      "salary": "Négociations salariales",
+      "salary_desc": "Obtenez la rémunération que vous méritez",
+      "partnerships": "Partenariats",
+      "partnerships_desc": "Créez des alliances stratégiques gagnant-gagnant",
+      "b2b": "Contrats B2B",
+      "b2b_desc": "Négociez des termes favorables pour votre entreprise",
+      "personal": "Projets personnels",
+      "personal_desc": "Réussissez toutes vos négociations du quotidien"
+    },
+    "benefits": {
+      "title": "Transformez votre approche de la négociation",
+      "subtitle": "Notre IA analyse vos conversations, identifie vos points forts et vous guide vers l'excellence en négociation.",
+      "measurable_improvement": "Amélioration mesurable de vos résultats",
+      "increased_confidence": "Confiance renforcée dans vos interactions",
+      "adapted_techniques": "Techniques adaptées à votre personnalité",
+      "real_time_tracking": "Suivi de vos progrès en temps réel",
+      "testimonial": "Grâce à Négociation Coach, j'ai augmenté mon taux de closing de 40% en seulement 2 mois. L'IA m'a aidé à identifier mes faiblesses et à les transformer en forces.",
+      "testimonial_author": "Sarah M., Directrice commerciale"
+    },
+    "cta": {
+      "title": "Prêt à devenir un expert en négociation ?",
+      "subtitle": "Rejoignez des milliers de professionnels qui ont déjà transformé leur approche de la négociation.",
+      "cta_primary": "Commencer maintenant",
+      "cta_secondary": "Se connecter",
+      "guarantee": "Gratuit • Sans engagement • Résultats garantis"
+    },
+    "footer": {
+      "description": "L'outil d'intelligence artificielle qui révolutionne l'apprentissage de la négociation pour les professionnels ambitieux.",
+      "product": "Produit",
+      "start": "Commencer",
+      "login": "Se connecter",
+      "features": "Fonctionnalités",
+      "pricing": "Tarifs",
+      "support": "Support",
+      "help_center": "Centre d'aide",
+      "contact": "Contact",
+      "privacy": "Confidentialité",
+      "terms": "Conditions",
+      "copyright": "Tous droits réservés."
+    }
+  },
+  "chat": {
+    "title": "Négociation Coach",
+    "subtitle": "Votre assistant IA pour perfectionner vos négociations",
+    "placeholder_initial": "Décrivez votre projet ou idée de négociation...",
+    "placeholder_continue": "Continuez la conversation...",
+    "new_conversation": "Nouvelle conversation",
+    "conversation_history": "Historique des conversations",
+    "creating_conversation": "Création de votre conversation...",
+    "loading_conversation": "Chargement de la conversation...",
+    "quick_actions": {
+      "client_negotiation": "💼 Négociation client",
+      "investor_pitch": "💰 Pitch investisseurs",
+      "salary_negotiation": "📈 Négociation salariale"
+    },
+    "quick_prompts": {
+      "client": "Je veux négocier un contrat avec un client",
+      "investor": "Comment présenter mon projet à des investisseurs ?",
+      "salary": "Simulation de négociation salariale"
+    }
+  },
+  "conversations": {
+    "title": "Historique des conversations",
+    "new_conversation": "Nouvelle conversation",
+    "no_conversations": "Aucune conversation trouvée",
+    "edit_title": "Modifier le nom",
+    "delete": "Supprimer",
+    "untitled": "Conversation sans titre",
+    "today": "Aujourd'hui",
+    "yesterday": "Hier",
+    "days_ago": "Il y a {days} jours"
+  },
+  "profile": {
+    "title": "Mon Profil",
+    "loading": "Chargement du profil...",
+    "full_name": "Nom complet",
+    "email": "Email",
+    "change_avatar": "Changer l'avatar",
+    "click_to_change": "Cliquez sur l'icône pour changer votre photo",
+    "account_info": "Informations du compte",
+    "user_id": "ID utilisateur:",
+    "account_type": "Type de compte:",
+    "standard": "Standard",
+    "email_change_disabled": "La modification d'email sera bientôt disponible",
+    "save": "Sauvegarder",
+    "saving": "Sauvegarde...",
+    "success": "Profil mis à jour avec succès !",
+    "error": "Erreur lors de la mise à jour du profil"
+  },
+  "help": {
+    "title": "Centre d'aide",
+    "subtitle": "Trouvez rapidement les réponses à vos questions et apprenez à tirer le meilleur parti de Négociation Coach.",
+    "search_placeholder": "Rechercher dans l'aide...",
+    "quick_guides": "Guides rapides",
+    "faq": "Questions fréquentes",
+    "no_results": "Aucun résultat trouvé pour \"{query}\"",
+    "need_more_help": "Besoin d'aide supplémentaire ?",
+    "contact_team": "Notre équipe est là pour vous aider. Contactez-nous pour toute question spécifique.",
+    "contact_us": "Nous contacter",
+    "guides": {
+      "quick_start": {
+        "title": "Guide de démarrage rapide",
+        "description": "Apprenez les bases en 5 minutes"
+      },
+      "advanced_techniques": {
+        "title": "Techniques de négociation avancées",
+        "description": "Maîtrisez les stratégies d'experts"
+      },
+      "preparation": {
+        "title": "Préparer une négociation importante",
+        "description": "Checklist complète pour réussir"
+      },
+      "analytics": {
+        "title": "Analyser vos performances",
+        "description": "Comprendre vos statistiques"
+      }
+    },
+    "faq_items": {
+      "getting_started": {
+        "question": "Comment commencer avec Négociation Coach ?",
+        "answer": "Créez simplement un compte gratuit, puis lancez votre première conversation. Notre IA vous guidera à travers le processus et s'adaptera à vos besoins spécifiques."
+      },
+      "privacy": {
+        "question": "Mes conversations sont-elles privées et sécurisées ?",
+        "answer": "Absolument. Toutes vos conversations sont chiffrées et stockées de manière sécurisée. Nous ne partageons jamais vos données avec des tiers."
+      },
+      "types": {
+        "question": "Puis-je utiliser l'outil pour différents types de négociations ?",
+        "answer": "Oui ! Notre IA est formée pour vous aider dans tous types de négociations : commerciales, salariales, partenariats, levées de fonds, etc."
+      },
+      "improvement": {
+        "question": "Comment l'IA améliore-t-elle mes compétences ?",
+        "answer": "L'IA analyse vos conversations, identifie vos points forts et faibles, puis vous propose des conseils personnalisés et des exercices adaptés."
+      },
+      "limits": {
+        "question": "Y a-t-il une limite au nombre de conversations ?",
+        "answer": "Non, vous pouvez créer autant de conversations que vous le souhaitez. Chaque conversation est sauvegardée dans votre historique."
+      },
+      "export": {
+        "question": "Puis-je exporter mes conversations ?",
+        "answer": "Cette fonctionnalité sera bientôt disponible. Vous pourrez exporter vos conversations en PDF pour les consulter hors ligne."
+      }
+    }
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Notre équipe est là pour vous accompagner dans votre parcours d'apprentissage de la négociation.",
+    "talk_about_project": "Parlons de votre projet",
+    "email": "Email",
+    "email_response": "Réponse sous 24h",
+    "live_chat": "Chat en direct",
+    "live_chat_available": "Disponible dans l'application",
+    "live_chat_hours": "Lun-Ven 9h-18h",
+    "address": "Adresse",
+    "address_location": "Paris, France",
+    "address_note": "Équipe 100% remote",
+    "hours": "Horaires",
+    "hours_business": "Lun-Ven 9h-18h CET",
+    "hours_support": "Support technique 24/7",
+    "send_message": "Envoyez-nous un message",
+    "form": {
+      "full_name": "Nom complet",
+      "email": "Email",
+      "subject": "Sujet",
+      "subject_placeholder": "Sélectionnez un sujet",
+      "subject_support": "Support technique",
+      "subject_feature": "Demande de fonctionnalité",
+      "subject_billing": "Facturation",
+      "subject_partnership": "Partenariat",
+      "subject_other": "Autre",
+      "message": "Message",
+      "message_placeholder": "Décrivez votre demande en détail...",
+      "send": "Envoyer le message",
+      "sending": "Envoi en cours..."
+    },
+    "success": {
+      "title": "Message envoyé !",
+      "message": "Merci pour votre message. Notre équipe vous répondra dans les plus brefs délais.",
+      "back_home": "Retour à l'accueil"
+    }
+  },
+  "privacy": {
+    "title": "Politique de confidentialité",
+    "subtitle": "Chez Négociation Coach, nous prenons la protection de vos données personnelles très au sérieux. Cette politique explique comment nous collectons, utilisons et protégeons vos informations.",
+    "last_updated": "Dernière mise à jour :",
+    "data_collected": {
+      "title": "Données collectées",
+      "subtitle": "Informations que nous collectons :",
+      "account_info": "Informations de compte : nom, adresse email, mot de passe chiffré",
+      "conversations": "Conversations : vos échanges avec l'IA pour améliorer le service",
+      "usage_data": "Données d'usage : statistiques d'utilisation anonymisées",
+      "technical_data": "Données techniques : adresse IP, type de navigateur, système d'exploitation"
+    },
+    "data_usage": {
+      "title": "Utilisation des données",
+      "subtitle": "Nous utilisons vos données pour :",
+      "provide_services": "Fournir et améliorer nos services d'IA",
+      "personalize": "Personnaliser votre expérience d'apprentissage",
+      "security": "Assurer la sécurité et prévenir les abus",
+      "support": "Vous contacter pour le support technique",
+      "analytics": "Analyser l'usage pour améliorer nos fonctionnalités"
+    },
+    "data_protection": {
+      "title": "Protection des données",
+      "subtitle": "Mesures de sécurité :",
+      "encryption": "Chiffrement : toutes les données sont chiffrées en transit et au repos",
+      "limited_access": "Accès limité : seul le personnel autorisé peut accéder aux données",
+      "monitoring": "Surveillance : monitoring 24/7 des systèmes de sécurité",
+      "audits": "Audits : audits de sécurité réguliers par des tiers"
+    },
+    "your_rights": {
+      "title": "Vos droits",
+      "subtitle": "Conformément au RGPD, vous disposez des droits suivants :",
+      "access": "Droit d'accès : consulter vos données personnelles",
+      "rectification": "Droit de rectification : corriger vos informations",
+      "erasure": "Droit à l'effacement : supprimer votre compte et vos données",
+      "portability": "Droit à la portabilité : exporter vos données",
+      "objection": "Droit d'opposition : vous opposer au traitement"
+    },
+    "contact": {
+      "title": "Contact",
+      "subtitle": "Pour toute question concernant cette politique ou vos données personnelles :",
+      "email": "Email : privacy@negociation-coach.com",
+      "form": "Formulaire de contact :"
+    }
+  },
+  "terms": {
+    "title": "Conditions d'utilisation",
+    "subtitle": "En utilisant Négociation Coach, vous acceptez les présentes conditions d'utilisation. Veuillez les lire attentivement avant d'utiliser notre service.",
+    "last_updated": "Dernière mise à jour :",
+    "acceptance": {
+      "title": "Acceptation des conditions",
+      "content": "En accédant et en utilisant Négociation Coach, vous acceptez d'être lié par ces conditions d'utilisation et notre politique de confidentialité. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser notre service."
+    },
+    "service_description": {
+      "title": "Description du service",
+      "subtitle": "Négociation Coach est un service qui fournit :",
+      "ai_assistant": "Un assistant IA pour l'apprentissage de la négociation",
+      "simulations": "Des simulations de négociation personnalisées",
+      "advice": "Des conseils et recommandations basés sur l'IA",
+      "tracking": "Un suivi de vos progrès et performances",
+      "platform": "Une plateforme de sauvegarde de vos conversations"
+    },
+    "acceptable_use": {
+      "title": "Utilisation acceptable",
+      "you_can": "Vous pouvez :",
+      "learning": "Utiliser le service à des fins d'apprentissage et de formation",
+      "conversations": "Créer et sauvegarder vos conversations",
+      "feedback": "Partager vos retours d'expérience avec notre équipe",
+      "professional": "Utiliser le service dans un cadre professionnel",
+      "you_cannot": "Vous ne pouvez pas :",
+      "illegal": "Utiliser le service à des fins illégales ou malveillantes",
+      "security": "Tenter de contourner les mesures de sécurité",
+      "sharing": "Partager votre compte avec d'autres personnes",
+      "bots": "Utiliser des bots ou scripts automatisés",
+      "copying": "Copier ou redistribuer notre contenu sans autorisation",
+      "harassment": "Harceler ou menacer d'autres utilisateurs"
+    },
+    "liability": {
+      "title": "Limitation de responsabilité",
+      "important": "Important :",
+      "disclaimer": "Négociation Coach est un outil d'apprentissage. Les conseils fournis ne constituent pas des conseils juridiques ou financiers professionnels.",
+      "as_is": "Le service est fourni \"en l'état\" sans garantie",
+      "accuracy": "Nous ne garantissons pas l'exactitude des conseils de l'IA",
+      "own_risk": "Vous utilisez le service à vos propres risques",
+      "limited": "Notre responsabilité est limitée au montant payé pour le service"
+    },
+    "contact": {
+      "title": "Contact",
+      "subtitle": "Pour toute question concernant ces conditions d'utilisation :",
+      "email": "Email : legal@negociation-coach.com",
+      "form": "Formulaire de contact :"
+    }
+  }
+}

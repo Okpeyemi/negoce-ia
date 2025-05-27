@@ -1,0 +1,400 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close",
+    "search": "Search",
+    "email": "Email",
+    "password": "Password",
+    "name": "Name",
+    "title": "Title"
+  },
+  "navigation": {
+    "home": "Home",
+    "login": "Sign In",
+    "register": "Sign Up",
+    "profile": "Profile",
+    "help": "Help",
+    "contact": "Contact",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "logout": "Sign Out"
+  },
+  "auth": {
+    "login": {
+      "title": "Sign In",
+      "subtitle": "Sign in to your account",
+      "email_label": "Email",
+      "password_label": "Password",
+      "forgot_password": "Forgot password?",
+      "login_button": "Sign In",
+      "google_button": "Continue with Google",
+      "no_account": "Don't have an account?",
+      "create_account": "Create account",
+      "logging_in": "Signing in...",
+      "google_loading": "Connecting..."
+    },
+    "register": {
+      "title": "Sign Up",
+      "subtitle": "Create your account",
+      "full_name_label": "Full name",
+      "email_label": "Email",
+      "password_label": "Password",
+      "confirm_password_label": "Confirm password",
+      "register_button": "Create my account",
+      "google_button": "Sign up with Google",
+      "already_account": "Already have an account?",
+      "sign_in": "Sign in",
+      "creating_account": "Creating account...",
+      "google_loading": "Signing up...",
+      "accept_terms": "I accept the",
+      "terms_link": "terms of service",
+      "and": "and",
+      "privacy_link": "privacy policy"
+    },
+    "callback": {
+      "connecting": "Connecting...",
+      "please_wait": "Please wait while we finalize your connection."
+    },
+    "forgot_password": {
+      "title": "Reset Password",
+      "subtitle": "Recover access to your account",
+      "description": "Enter your email address and we'll send you a link to reset your password.",
+      "email_label": "Email address",
+      "send_button": "Send Link",
+      "sending": "Sending...",
+      "back_to_login": "Back to login",
+      "remember_password": "Remember your password?",
+      "sign_in": "Sign in",
+      "success_title": "Email sent!",
+      "success_message": "We've sent a reset link to",
+      "check_spam": "Please also check your spam folder.",
+      "resend_email": "Resend email"
+    },
+    "errors": {
+      "auth_error": "Error during Google authentication",
+      "callback_error": "Error finalizing connection",
+      "unexpected_error": "An unexpected error occurred",
+      "google_error": "Error connecting with Google",
+      "name_required": "Name is required",
+      "email_required": "Email is required",
+      "email_invalid": "Invalid email",
+      "password_required": "Password is required",
+      "password_min_length": "Password must be at least 8 characters",
+      "passwords_no_match": "Passwords do not match"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Master the art of negotiation with AI",
+      "subtitle": "Your personal AI-powered coach to perfect your negotiation skills and succeed in all your projects.",
+      "cta_primary": "Get started for free",
+      "cta_secondary": "I already have an account"
+    },
+    "features": {
+      "title": "Why choose Negotiation Coach?",
+      "subtitle": "A revolutionary approach to developing your negotiation skills through artificial intelligence.",
+      "realistic_simulations": {
+        "title": "Realistic Simulations",
+        "description": "Practice with personalized negotiation scenarios tailored to your industry and specific objectives."
+      },
+      "instant_feedback": {
+        "title": "Instant Feedback",
+        "description": "Receive real-time advice on your approach, arguments, and negotiation strategy."
+      },
+      "personalized_coaching": {
+        "title": "Personalized Coaching",
+        "description": "Benefit from tailored guidance that adapts to your level and improvement needs."
+      }
+    },
+    "use_cases": {
+      "title": "Perfect for all your projects",
+      "subtitle": "Whether you're an entrepreneur, salesperson, or manager, our AI helps you excel in all your negotiations.",
+      "commercial": "Commercial negotiations",
+      "commercial_desc": "Close more deals with proven techniques",
+      "funding": "Fundraising",
+      "funding_desc": "Convince investors with a perfect pitch",
+      "salary": "Salary negotiations",
+      "salary_desc": "Get the compensation you deserve",
+      "partnerships": "Partnerships",
+      "partnerships_desc": "Create win-win strategic alliances",
+      "b2b": "B2B contracts",
+      "b2b_desc": "Negotiate favorable terms for your business",
+      "personal": "Personal projects",
+      "personal_desc": "Succeed in all your daily negotiations"
+    },
+    "benefits": {
+      "title": "Transform your negotiation approach",
+      "subtitle": "Our AI analyzes your conversations, identifies your strengths, and guides you toward negotiation excellence.",
+      "measurable_improvement": "Measurable improvement in your results",
+      "increased_confidence": "Increased confidence in your interactions",
+      "adapted_techniques": "Techniques adapted to your personality",
+      "real_time_tracking": "Real-time progress tracking",
+      "testimonial": "Thanks to Negotiation Coach, I increased my closing rate by 40% in just 2 months. The AI helped me identify my weaknesses and turn them into strengths.",
+      "testimonial_author": "Sarah M., Sales Director"
+    },
+    "cta": {
+      "title": "Ready to become a negotiation expert?",
+      "subtitle": "Join thousands of professionals who have already transformed their negotiation approach.",
+      "cta_primary": "Start now",
+      "cta_secondary": "Sign in",
+      "guarantee": "Free • No commitment • Guaranteed results"
+    },
+    "footer": {
+      "description": "The AI tool that revolutionizes negotiation learning for ambitious professionals.",
+      "product": "Product",
+      "start": "Get started",
+      "login": "Sign in",
+      "features": "Features",
+      "pricing": "Pricing",
+      "support": "Support",
+      "help_center": "Help center",
+      "contact": "Contact",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "copyright": "All rights reserved."
+    }
+  },
+  "chat": {
+    "title": "Negotiation Coach",
+    "subtitle": "Your AI assistant to perfect your negotiations",
+    "placeholder_initial": "Describe your project or negotiation idea...",
+    "placeholder_continue": "Continue the conversation...",
+    "new_conversation": "New conversation",
+    "conversation_history": "Conversation history",
+    "creating_conversation": "Creating your conversation...",
+    "loading_conversation": "Loading conversation...",
+    "quick_actions": {
+      "client_negotiation": "💼 Client negotiation",
+      "investor_pitch": "💰 Investor pitch",
+      "salary_negotiation": "📈 Salary negotiation"
+    },
+    "quick_prompts": {
+      "client": "I want to negotiate a contract with a client",
+      "investor": "How to present my project to investors?",
+      "salary": "Salary negotiation simulation"
+    }
+  },
+  "conversations": {
+    "title": "Conversation history",
+    "new_conversation": "New conversation",
+    "no_conversations": "No conversations found",
+    "edit_title": "Edit name",
+    "delete": "Delete",
+    "untitled": "Untitled conversation",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "days_ago": "{days} days ago"
+  },
+  "profile": {
+    "title": "My Profile",
+    "loading": "Loading profile...",
+    "full_name": "Full name",
+    "email": "Email",
+    "change_avatar": "Change avatar",
+    "click_to_change": "Click the icon to change your photo",
+    "account_info": "Account information",
+    "user_id": "User ID:",
+    "account_type": "Account type:",
+    "standard": "Standard",
+    "email_change_disabled": "Email modification will be available soon",
+    "save": "Save",
+    "saving": "Saving...",
+    "success": "Profile updated successfully!",
+    "error": "Error updating profile"
+  },
+  "help": {
+    "title": "Help Center",
+    "subtitle": "Quickly find answers to your questions and learn how to get the most out of Negotiation Coach.",
+    "search_placeholder": "Search help...",
+    "quick_guides": "Quick guides",
+    "faq": "Frequently asked questions",
+    "no_results": "No results found for \"{query}\"",
+    "need_more_help": "Need more help?",
+    "contact_team": "Our team is here to help. Contact us for any specific questions.",
+    "contact_us": "Contact us",
+    "guides": {
+      "quick_start": {
+        "title": "Quick start guide",
+        "description": "Learn the basics in 5 minutes"
+      },
+      "advanced_techniques": {
+        "title": "Advanced negotiation techniques",
+        "description": "Master expert strategies"
+      },
+      "preparation": {
+        "title": "Preparing an important negotiation",
+        "description": "Complete checklist for success"
+      },
+      "analytics": {
+        "title": "Analyzing your performance",
+        "description": "Understanding your statistics"
+      }
+    },
+    "faq_items": {
+      "getting_started": {
+        "question": "How do I get started with Negotiation Coach?",
+        "answer": "Simply create a free account, then start your first conversation. Our AI will guide you through the process and adapt to your specific needs."
+      },
+      "privacy": {
+        "question": "Are my conversations private and secure?",
+        "answer": "Absolutely. All your conversations are encrypted and stored securely. We never share your data with third parties."
+      },
+      "types": {
+        "question": "Can I use the tool for different types of negotiations?",
+        "answer": "Yes! Our AI is trained to help you with all types of negotiations: commercial, salary, partnerships, fundraising, etc."
+      },
+      "improvement": {
+        "question": "How does the AI improve my skills?",
+        "answer": "The AI analyzes your conversations, identifies your strengths and weaknesses, then offers personalized advice and adapted exercises."
+      },
+      "limits": {
+        "question": "Is there a limit to the number of conversations?",
+        "answer": "No, you can create as many conversations as you want. Each conversation is saved in your history."
+      },
+      "export": {
+        "question": "Can I export my conversations?",
+        "answer": "This feature will be available soon. You'll be able to export your conversations as PDF for offline viewing."
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact us",
+    "subtitle": "Our team is here to support you in your negotiation learning journey.",
+    "talk_about_project": "Let's talk about your project",
+    "email": "Email",
+    "email_response": "Response within 24h",
+    "live_chat": "Live chat",
+    "live_chat_available": "Available in the app",
+    "live_chat_hours": "Mon-Fri 9am-6pm",
+    "address": "Address",
+    "address_location": "Paris, France",
+    "address_note": "100% remote team",
+    "hours": "Hours",
+    "hours_business": "Mon-Fri 9am-6pm CET",
+    "hours_support": "24/7 technical support",
+    "send_message": "Send us a message",
+    "form": {
+      "full_name": "Full name",
+      "email": "Email",
+      "subject": "Subject",
+      "subject_placeholder": "Select a subject",
+      "subject_support": "Technical support",
+      "subject_feature": "Feature request",
+      "subject_billing": "Billing",
+      "subject_partnership": "Partnership",
+      "subject_other": "Other",
+      "message": "Message",
+      "message_placeholder": "Describe your request in detail...",
+      "send": "Send message",
+      "sending": "Sending..."
+    },
+    "success": {
+      "title": "Message sent!",
+      "message": "Thank you for your message. Our team will respond as soon as possible.",
+      "back_home": "Back to home"
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "subtitle": "At Negotiation Coach, we take the protection of your personal data very seriously. This policy explains how we collect, use, and protect your information.",
+    "last_updated": "Last updated:",
+    "data_collected": {
+      "title": "Data collected",
+      "subtitle": "Information we collect:",
+      "account_info": "Account information: name, email address, encrypted password",
+      "conversations": "Conversations: your exchanges with AI to improve the service",
+      "usage_data": "Usage data: anonymized usage statistics",
+      "technical_data": "Technical data: IP address, browser type, operating system"
+    },
+    "data_usage": {
+      "title": "Data usage",
+      "subtitle": "We use your data to:",
+      "provide_services": "Provide and improve our AI services",
+      "personalize": "Personalize your learning experience",
+      "security": "Ensure security and prevent abuse",
+      "support": "Contact you for technical support",
+      "analytics": "Analyze usage to improve our features"
+    },
+    "data_protection": {
+      "title": "Data protection",
+      "subtitle": "Security measures:",
+      "encryption": "Encryption: all data is encrypted in transit and at rest",
+      "limited_access": "Limited access: only authorized personnel can access data",
+      "monitoring": "Monitoring: 24/7 monitoring of security systems",
+      "audits": "Audits: regular security audits by third parties"
+    },
+    "your_rights": {
+      "title": "Your rights",
+      "subtitle": "In accordance with GDPR, you have the following rights:",
+      "access": "Right of access: view your personal data",
+      "rectification": "Right of rectification: correct your information",
+      "erasure": "Right to erasure: delete your account and data",
+      "portability": "Right to portability: export your data",
+      "objection": "Right to object: object to processing"
+    },
+    "contact": {
+      "title": "Contact",
+      "subtitle": "For any questions regarding this policy or your personal data:",
+      "email": "Email: privacy@negotiation-coach.com",
+      "form": "Contact form:"
+    }
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "subtitle": "By using Negotiation Coach, you agree to these terms of service. Please read them carefully before using our service.",
+    "last_updated": "Last updated:",
+    "acceptance": {
+      "title": "Acceptance of terms",
+      "content": "By accessing and using Negotiation Coach, you agree to be bound by these terms of service and our privacy policy. If you do not agree to these terms, please do not use our service."
+    },
+    "service_description": {
+      "title": "Service description",
+      "subtitle": "Negotiation Coach is a service that provides:",
+      "ai_assistant": "An AI assistant for negotiation learning",
+      "simulations": "Personalized negotiation simulations",
+      "advice": "AI-based advice and recommendations",
+      "tracking": "Progress and performance tracking",
+      "platform": "A platform for saving your conversations"
+    },
+    "acceptable_use": {
+      "title": "Acceptable use",
+      "you_can": "You may:",
+      "learning": "Use the service for learning and training purposes",
+      "conversations": "Create and save your conversations",
+      "feedback": "Share your feedback with our team",
+      "professional": "Use the service in a professional context",
+      "you_cannot": "You may not:",
+      "illegal": "Use the service for illegal or malicious purposes",
+      "security": "Attempt to bypass security measures",
+      "sharing": "Share your account with others",
+      "bots": "Use bots or automated scripts",
+      "copying": "Copy or redistribute our content without permission",
+      "harassment": "Harass or threaten other users"
+    },
+    "liability": {
+      "title": "Limitation of liability",
+      "important": "Important:",
+      "disclaimer": "Negotiation Coach is a learning tool. The advice provided does not constitute professional legal or financial advice.",
+      "as_is": "The service is provided \"as is\" without warranty",
+      "accuracy": "We do not guarantee the accuracy of AI advice",
+      "own_risk": "You use the service at your own risk",
+      "limited": "Our liability is limited to the amount paid for the service"
+    },
+    "contact": {
+      "title": "Contact",
+      "subtitle": "For any questions regarding these terms of service:",
+      "email": "Email: legal@negotiation-coach.com",
+      "form": "Contact form:"
+    }
+  }
+}
