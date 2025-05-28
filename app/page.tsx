@@ -228,7 +228,7 @@ export default function HomePage() {
       {/* Benefits Section */}
       <section className="py-20 px-6 bg-gray-800/30">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-1 gap-12 items-center">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold mb-6">{t("home.benefits.title")}</h2>
               <p className="text-xl text-gray-300 mb-8">{t("home.benefits.subtitle")}</p>
@@ -248,7 +248,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-2xl p-8 border border-blue-500/30">
+            {/* <div className="bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-2xl p-8 border border-blue-500/30">
               <div className="text-center">
                 <div className="flex justify-center mb-4">
                   {[...Array(5)].map((_, i) => (
@@ -258,7 +258,7 @@ export default function HomePage() {
                 <blockquote className="text-xl italic mb-4">"{t("home.benefits.testimonial")}"</blockquote>
                 <cite className="text-gray-300">— {t("home.benefits.testimonial_author")}</cite>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
