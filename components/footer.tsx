@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { MessageSquare } from "lucide-react"
 import { useI18n } from "../lib/i18n/hooks"
 
@@ -13,7 +14,8 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <MessageSquare className="h-8 w-8 text-blue-500" />
+            {/* <MessageSquare className="h-8 w-8 text-blue-500" /> */}
+            <Image src="/logo.png" alt="Logo" width={32} height={32} className="hidden md:block" />
               <span className="text-xl font-bold">{t("chat.title")}</span>
             </div>
             <p className="text-gray-400 max-w-md">{t("home.footer.description")}</p>
