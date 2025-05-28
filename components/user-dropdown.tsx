@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { UserRound, User, LogOut, LayoutDashboard } from "lucide-react"
+import { UserRound, User, LogOut, LayoutDashboard, MessageSquare } from "lucide-react"
 import { authService } from "../lib/auth"
 import { useRouter } from "next/navigation"
 import { useI18n } from "../lib/i18n/hooks"
@@ -53,6 +53,16 @@ export default function UserDropdown({ userEmail, userName, profileRole }: UserD
     router.push("/profile")
   }
 
+  const handleNewChat = () => {
+    setIsOpen(false)
+    router.push("/chat/new")
+  }
+
+  const handleDashboard = () => {
+    setIsOpen(false)
+    router.push("/dashboard")
+  }
+
   return (
     <div className="relative" ref={dropdownRef}>
       {/* Bouton utilisateur */}
@@ -81,6 +91,16 @@ export default function UserDropdown({ userEmail, userName, profileRole }: UserD
 
           {/* Menu items */}
           <div className="py-2">
+            {/* Nouveau Chat */}
+            <button
+              onClick={handleNewChat}
+              className="w-full px-4 py-3 text-left text-gray-300 hover:text-white hover:bg-gray-700 transition-colors cursor-pointer flex items-center gap-3"
+            >
+              <MessageSquare className="h-4 w-4" />
+              {t("navigation.newChat")}
+            </button>
+
+            {/* Profil */}
             <button
               onClick={handleProfile}
               className="w-full px-4 py-3 text-left text-gray-300 hover:text-white hover:bg-gray-700 transition-colors cursor-pointer flex items-center gap-3"
@@ -89,9 +109,10 @@ export default function UserDropdown({ userEmail, userName, profileRole }: UserD
               {t("navigation.profile")}
             </button>
 
+            {/* Dashboard (admin seulement) */}
             {profileRole === "admin" && (
               <button
-                onClick={() => router.push("/dashboard")}
+                onClick={handleDashboard}
                 className="w-full px-4 py-3 text-left text-gray-300 hover:text-white hover:bg-gray-700 transition-colors cursor-pointer flex items-center gap-3"
               >
                 <LayoutDashboard className="h-4 w-4" />
@@ -99,6 +120,7 @@ export default function UserDropdown({ userEmail, userName, profileRole }: UserD
               </button>
             )}
 
+            {/* Déconnexion */}
             <button
               onClick={handleSignOut}
               disabled={isLoading}

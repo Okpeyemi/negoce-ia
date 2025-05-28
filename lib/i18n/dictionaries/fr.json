@@ -28,7 +28,8 @@
     "contact": "Contact",
     "privacy": "Confidentialité",
     "terms": "Conditions",
-    "logout": "Déconnexion"
+    "logout": "Déconnexion",
+    "newChat": "Nouveau chat"
   },
   "auth": {
     "login": {
