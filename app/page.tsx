@@ -3,19 +3,113 @@
 import Link from "next/link"
 import { ArrowRight, Target, Users, Zap, CheckCircle, Star } from "lucide-react"
 import { useI18n } from "../lib/i18n/hooks"
+import { authService } from "../lib/auth"
+import { useState, useEffect } from "react"
 import Header from "../components/header"
 import Footer from "../components/footer"
 
 export default function HomePage() {
   const { t, isLoading } = useI18n()
+  const [user, setUser] = useState<any>(null)
+  const [isCheckingAuth, setIsCheckingAuth] = useState(true)
 
-  if (isLoading) {
+  // Vérifier l'authentification au chargement
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const { user: currentUser } = await authService.getCurrentUser()
+        setUser(currentUser)
+      } catch (error) {
+        console.error("Erreur lors de la vérification de l'authentification:", error)
+      } finally {
+        setIsCheckingAuth(false)
+      }
+    }
+
+    if (!isLoading) {
+      checkAuth()
+    }
+  }, [isLoading])
+
+  if (isLoading || isCheckingAuth) {
     return (
       <div className="min-h-screen bg-gray-900 flex items-center justify-center">
         <div className="text-center">
           <div className="w-8 h-8 border-2 border-gray-400 border-t-blue-500 rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-gray-400">{t("common.loading")}</p>
         </div>
+      </div>
+    )
+  }
+
+  // Composant pour les boutons d'action
+  const ActionButtons = () => {
+    if (user) {
+      // Utilisateur connecté - afficher le bouton "Nouvelle discussion"
+      return (
+        <div className="flex justify-center">
+          <Link
+            href="/chat/new"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl transition-colors font-semibold text-lg flex items-center justify-center gap-2"
+          >
+            {t("home.hero.new_chat")}
+            <ArrowRight className="h-5 w-5" />
+          </Link>
+        </div>
+      )
+    }
+
+    // Utilisateur non connecté - afficher les boutons d'inscription/connexion
+    return (
+      <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <Link
+          href="/register"
+          className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl transition-colors font-semibold text-lg flex items-center justify-center gap-2"
+        >
+          {t("home.hero.cta_primary")}
+          <ArrowRight className="h-5 w-5" />
+        </Link>
+        <Link
+          href="/login"
+          className="border border-gray-600 hover:border-gray-500 text-white px-8 py-4 rounded-xl transition-colors font-semibold text-lg"
+        >
+          {t("home.hero.cta_secondary")}
+        </Link>
+      </div>
+    )
+  }
+
+  // Composant pour les boutons CTA en bas de page
+  const CTAButtons = () => {
+    if (user) {
+      return (
+        <div className="flex justify-center">
+          <Link
+            href="/chat/new"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl transition-colors font-semibold text-lg flex items-center justify-center gap-2"
+          >
+            {t("home.cta.new_chat")}
+            <ArrowRight className="h-5 w-5" />
+          </Link>
+        </div>
+      )
+    }
+
+    return (
+      <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <Link
+          href="/register"
+          className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl transition-colors font-semibold text-lg flex items-center justify-center gap-2"
+        >
+          {t("home.cta.cta_primary")}
+          <ArrowRight className="h-5 w-5" />
+        </Link>
+        <Link
+          href="/login"
+          className="border border-gray-600 hover:border-gray-500 text-white px-8 py-4 rounded-xl transition-colors font-semibold text-lg"
+        >
+          {t("home.cta.cta_secondary")}
+        </Link>
       </div>
     )
   }
@@ -33,21 +127,7 @@ export default function HomePage() {
               {t("home.hero.title")}
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">{t("home.hero.subtitle")}</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/register"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl transition-colors font-semibold text-lg flex items-center justify-center gap-2"
-              >
-                {t("home.hero.cta_primary")}
-                <ArrowRight className="h-5 w-5" />
-              </Link>
-              <Link
-                href="/login"
-                className="border border-gray-600 hover:border-gray-500 text-white px-8 py-4 rounded-xl transition-colors font-semibold text-lg"
-              >
-                {t("home.hero.cta_secondary")}
-              </Link>
-            </div>
+            <ActionButtons />
           </div>
         </div>
       </section>
@@ -188,22 +268,10 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">{t("home.cta.title")}</h2>
           <p className="text-xl text-gray-300 mb-8">{t("home.cta.subtitle")}</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/register"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl transition-colors font-semibold text-lg flex items-center justify-center gap-2"
-            >
-              {t("home.cta.cta_primary")}
-              <ArrowRight className="h-5 w-5" />
-            </Link>
-            <Link
-              href="/login"
-              className="border border-gray-600 hover:border-gray-500 text-white px-8 py-4 rounded-xl transition-colors font-semibold text-lg"
-            >
-              {t("home.cta.cta_secondary")}
-            </Link>
-          </div>
-          <p className="text-gray-400 mt-4">{t("home.cta.guarantee")}</p>
+          <CTAButtons />
+          {!user && (
+            <p className="text-gray-400 mt-4">{t("home.cta.guarantee")}</p>
+          )}
         </div>
       </section>
 

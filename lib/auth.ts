@@ -85,6 +85,11 @@ export const authService = {
     return { data, error }
   },
 
+  async getAllProfiles() {
+    const { data, error } = await supabase.from("profiles").select("*")
+    return { data, error }
+  },
+
   // Mettre à jour le profil
   async updateProfile(userId: string, updates: Partial<{ full_name: string; avatar_url: string }>) {
     const { data, error } = await supabase

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { UserRound, User, LogOut } from "lucide-react"
+import { UserRound, User, LogOut, LayoutDashboard } from "lucide-react"
 import { authService } from "../lib/auth"
 import { useRouter } from "next/navigation"
 import { useI18n } from "../lib/i18n/hooks"
@@ -9,9 +9,10 @@ import { useI18n } from "../lib/i18n/hooks"
 interface UserDropdownProps {
   userEmail?: string
   userName?: string
+  profileRole?: string
 }
 
-export default function UserDropdown({ userEmail, userName }: UserDropdownProps) {
+export default function UserDropdown({ userEmail, userName, profileRole }: UserDropdownProps) {
   const { t } = useI18n()
   const [isOpen, setIsOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
@@ -87,6 +88,16 @@ export default function UserDropdown({ userEmail, userName }: UserDropdownProps)
               <User className="h-4 w-4" />
               {t("navigation.profile")}
             </button>
+
+            {profileRole === "admin" && (
+              <button
+                onClick={() => router.push("/dashboard")}
+                className="w-full px-4 py-3 text-left text-gray-300 hover:text-white hover:bg-gray-700 transition-colors cursor-pointer flex items-center gap-3"
+              >
+                <LayoutDashboard className="h-4 w-4" />
+                {t("navigation.adminPanel")}
+              </button>
+            )}
 
             <button
               onClick={handleSignOut}

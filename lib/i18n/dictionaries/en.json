@@ -23,6 +23,7 @@
     "login": "Sign In",
     "register": "Sign Up",
     "profile": "Profile",
+    "adminPanel": "Dashboard",
     "help": "Help",
     "contact": "Contact",
     "privacy": "Privacy",
@@ -80,6 +81,19 @@
       "check_spam": "Please also check your spam folder.",
       "resend_email": "Resend email"
     },
+    "reset_password": {
+      "title": "New Password",
+      "subtitle": "Create a new password",
+      "description": "Choose a secure password with at least 8 characters.",
+      "password_label": "New password",
+      "confirm_password_label": "Confirm password",
+      "update_button": "Update password",
+      "updating": "Updating...",
+      "success_title": "Password updated!",
+      "success_message": "Your password has been successfully updated. You will be redirected to the login page.",
+      "login_now": "Sign in now",
+      "invalid_link": "Invalid or expired reset link"
+    },
     "errors": {
       "auth_error": "Error during Google authentication",
       "callback_error": "Error finalizing connection",
@@ -98,7 +112,8 @@
       "title": "Master the art of negotiation with AI",
       "subtitle": "Your personal AI-powered coach to perfect your negotiation skills and succeed in all your projects.",
       "cta_primary": "Get started for free",
-      "cta_secondary": "I already have an account"
+      "cta_secondary": "I already have an account",
+      "new_chat": "New Chat"
     },
     "features": {
       "title": "Why choose Negotiation Coach?",
@@ -147,7 +162,8 @@
       "subtitle": "Join thousands of professionals who have already transformed their negotiation approach.",
       "cta_primary": "Start now",
       "cta_secondary": "Sign in",
-      "guarantee": "Free • No commitment • Guaranteed results"
+      "guarantee": "Free • No commitment • Guaranteed results",
+      "new_chat": "Start a New Chat"
     },
     "footer": {
       "description": "The AI tool that revolutionizes negotiation learning for ambitious professionals.",
@@ -210,7 +226,9 @@
     "save": "Save",
     "saving": "Saving...",
     "success": "Profile updated successfully!",
-    "error": "Error updating profile"
+    "error": "Error updating profile",
+    "admin": "Administrator",
+    "user": "User"
   },
   "help": {
     "title": "Help Center",
@@ -396,5 +414,31 @@
       "email": "Email: legal@negotiation-coach.com",
       "form": "Contact form:"
     }
+  },
+  "dashboard": {
+    "access_denied": "Access denied. You must be an administrator to access this page.",
+    "loading_error": "Error loading user profiles.",
+    "unexpected_error": "An unexpected error occurred.",
+    "loading": "Loading dashboard...",
+    "access_denied_title": "Access Denied",
+    "back_home": "Back to Home",
+    "title": "Dashboard",
+    "total_users": "Total Users",
+    "admins": "Administrators",
+    "regular_users": "Regular Users",
+    "users_list": "Users List",
+    "user": "User",
+    "email": "Email",
+    "role": "Role",
+    "created_at": "Created At",
+    "admin": "Administrator",
+    "pagination": {
+      "showing": "Showing",
+      "of": "of",
+      "users": "users",
+      "page": "Page"
+    },
+    "sort_by_role": "Sort by role",
+    "sorted_by_role": "Sorted by role"
   }
 }

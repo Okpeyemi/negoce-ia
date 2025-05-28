@@ -30,7 +30,7 @@ const ChatPage = () => {
   const [messages, setMessages] = useState<Message[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [streamingMessage, setStreamingMessage] = useState("")
-  const [user, setUser] = useState<{ id: string; email: string; name?: string } | null>(null)
+  const [user, setUser] = useState<{ id: string; role: string; email: string; name?: string } | null>(null)
   const [conversation, setConversation] = useState<{ id: string; title: string } | null>(null)
   const [isLoadingData, setIsLoadingData] = useState(true)
   const [isConversationsModalOpen, setIsConversationsModalOpen] = useState(false)
@@ -51,6 +51,7 @@ const ChatPage = () => {
         const { data: profile } = await authService.getProfile(currentUser.id)
         setUser({
           id: currentUser.id,
+          role: profile.role,
           email: currentUser.email || "",
           name: profile?.full_name || undefined,
         })
@@ -235,7 +236,7 @@ const ChatPage = () => {
   const renderMessages = () => {
     if (messages.length === 0 && !isLoading) {
       return (
-        <div className="flex h-[80vh] max-xl:h-[78vh] flex-col items-center justify-center max-w-4xl mx-auto px-6">
+        <div className="flex h-[80vh] flex-col items-center justify-center max-w-4xl mx-auto px-6">
           {/* Logo/Title */}
           <div className="mb-12">
             <h1 className="text-6xl max-sm:text-5xl font-bold text-white mb-2 text-center">{t("chat.title")}</h1>
@@ -398,7 +399,7 @@ const ChatPage = () => {
             >
               <ListCollapse className="h-5 w-5" />
             </button>
-            <UserDropdown userEmail={user.email} userName={user.name} />
+            <UserDropdown userEmail={user.email} userName={user.name} profileRole={user.role} />
           </div>
         </div>
       </div>

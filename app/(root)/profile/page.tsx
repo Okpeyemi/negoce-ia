@@ -7,12 +7,14 @@ import { ArrowLeft, User, Mail, Save, Camera } from "lucide-react"
 import { authService } from "../../../lib/auth"
 import { useI18n } from "../../../lib/i18n/hooks"
 import LanguageSwitcher from "../../../components/language-switcher"
+import UserDropdown from "../../../components/user-dropdown"
 
 interface ProfileData {
   id: string
   email: string
   full_name: string
   avatar_url?: string
+  role?: string
 }
 
 const ProfilePage = () => {
@@ -49,6 +51,7 @@ const ProfilePage = () => {
           email: currentUser.email || "",
           full_name: profile?.full_name || "",
           avatar_url: profile?.avatar_url || undefined,
+          role: profile?.role || "user",
         }
 
         setUser(userData)
@@ -156,8 +159,8 @@ const ProfilePage = () => {
   return (
     <div className="min-h-screen bg-gray-900">
       {/* Header */}
-      <div className="bg-gray-800/50 border-b border-gray-700 fixed top-0 left-0 right-0 z-10 items-center justify-center backdrop-blur-sm">
-        <div className="max-w-4xl mx-auto px-6 py-4">
+      <div className="bg-gray-900/95 border-b border-gray-800 fixed top-0 left-0 right-0 z-10 items-center justify-center backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <button
@@ -168,13 +171,24 @@ const ProfilePage = () => {
               </button>
               <h1 className="text-2xl font-bold text-white">{t("profile.title")}</h1>
             </div>
-            <LanguageSwitcher />
+            
+            {/* Navigation avec UserDropdown */}
+            <div className="flex items-center gap-4">
+              <LanguageSwitcher />
+              {user && (
+                <UserDropdown 
+                  userEmail={user.email} 
+                  userName={user.full_name} 
+                  profileRole={user.role || "user"} 
+                />
+              )}
+            </div>
           </div>
         </div>
       </div>
 
       {/* Content */}
-      <div className="max-w-2xl mx-auto  px-6 pb-8 pt-40 max-md:pt-30">
+      <div className="max-w-2xl mx-auto px-6 pb-8 pt-40 max-md:pt-30">
         <div className="bg-gray-800/50 border border-gray-700 rounded-2xl p-8 backdrop-blur-sm">
           {/* Messages */}
           {errors.general && (
@@ -272,7 +286,9 @@ const ProfilePage = () => {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-400">{t("profile.account_type")}</span>
-                  <span className="text-gray-300">{t("profile.standard")}</span>
+                  <span className="text-gray-300">
+                    {user.role === "admin" ? t("profile.admin") : t("profile.user")}
+                  </span>
                 </div>
               </div>
             </div>

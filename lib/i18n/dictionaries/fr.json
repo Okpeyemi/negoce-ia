@@ -23,6 +23,7 @@
     "login": "Se connecter",
     "register": "S'inscrire",
     "profile": "Profil",
+    "adminPanel": "Dashboard",
     "help": "Aide",
     "contact": "Contact",
     "privacy": "Confidentialité",
@@ -111,7 +112,8 @@
       "title": "Maîtrisez l'art de la négociation avec l'IA",
       "subtitle": "Votre coach personnel alimenté par l'intelligence artificielle pour perfectionner vos compétences de négociation et réussir tous vos projets.",
       "cta_primary": "Commencer gratuitement",
-      "cta_secondary": "J'ai déjà un compte"
+      "cta_secondary": "J'ai déjà un compte",
+      "new_chat": "Nouvelle discussion"
     },
     "features": {
       "title": "Pourquoi choisir Négociation Coach ?",
@@ -160,7 +162,8 @@
       "subtitle": "Rejoignez des milliers de professionnels qui ont déjà transformé leur approche de la négociation.",
       "cta_primary": "Commencer maintenant",
       "cta_secondary": "Se connecter",
-      "guarantee": "Gratuit • Sans engagement • Résultats garantis"
+      "guarantee": "Gratuit • Sans engagement • Résultats garantis",
+      "new_chat": "Commencer une nouvelle discussion"
     },
     "footer": {
       "description": "L'outil d'intelligence artificielle qui révolutionne l'apprentissage de la négociation pour les professionnels ambitieux.",
@@ -223,7 +226,9 @@
     "save": "Sauvegarder",
     "saving": "Sauvegarde...",
     "success": "Profil mis à jour avec succès !",
-    "error": "Erreur lors de la mise à jour du profil"
+    "error": "Erreur lors de la mise à jour du profil",
+    "admin": "Administrateur",
+    "user": "Utilisateur"
   },
   "help": {
     "title": "Centre d'aide",
@@ -409,5 +414,31 @@
       "email": "Email : legal@negociation-coach.com",
       "form": "Formulaire de contact :"
     }
+  },
+  "dashboard": {
+    "access_denied": "Accès refusé. Vous devez être administrateur pour accéder à cette page.",
+    "loading_error": "Erreur lors du chargement des profils utilisateur.",
+    "unexpected_error": "Une erreur inattendue s'est produite.",
+    "loading": "Chargement du tableau de bord...",
+    "access_denied_title": "Accès refusé",
+    "back_home": "Retour à l'accueil",
+    "title": "Tableau de bord",
+    "total_users": "Utilisateurs totaux",
+    "admins": "Administrateurs",
+    "regular_users": "Utilisateurs standard",
+    "users_list": "Liste des utilisateurs",
+    "user": "Utilisateur",
+    "email": "Email",
+    "role": "Rôle",
+    "created_at": "Date de création",
+    "admin": "Administrateur",
+    "pagination": {
+      "showing": "Affichage de",
+      "of": "sur",
+      "users": "utilisateurs",
+      "page": "Page"
+    },
+    "sort_by_role": "Trier par rôle",
+    "sorted_by_role": "Trié par rôle"
   }
 }

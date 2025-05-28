@@ -178,7 +178,7 @@ const ResetPasswordPage = () => {
                 </p>
                 <Link
                   href="/login"
-                  className="w-full inline-block py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium transition-colors text-center"
+                  className="w-full inline-block py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium transition-colors cursor-pointer text-center"
                 >
                   Se connecter maintenant
                 </Link>
@@ -209,7 +209,7 @@ const ResetPasswordPage = () => {
             <div className="mb-6">
               <Link
                 href="/login"
-                className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors cursor-pointer"
               >
                 <ArrowLeft className="h-4 w-4" />
                 Retour à la connexion
@@ -250,7 +250,7 @@ const ResetPasswordPage = () => {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors cursor-pointer"
                   >
                     {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                   </button>
@@ -278,7 +278,7 @@ const ResetPasswordPage = () => {
                   <button
                     type="button"
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors cursor-pointer"
                   >
                     {showConfirmPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                   </button>
@@ -289,7 +289,7 @@ const ResetPasswordPage = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className={`w-full py-3 px-4 rounded-xl font-medium transition-colors ${
+                className={`w-full py-3 px-4 rounded-xl font-medium transition-colors cursor-pointer ${
                   isLoading
                     ? "bg-gray-600 text-gray-400 cursor-not-allowed"
                     : "bg-blue-600 hover:bg-blue-700 text-white"

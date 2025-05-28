@@ -108,7 +108,7 @@ const ForgotPasswordPage = () => {
                 <div className="space-y-3">
                   <Link
                     href="/login"
-                    className="w-full inline-block py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium transition-colors text-center"
+                    className="w-full inline-block py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium transition-colors cursor-pointer text-center"
                   >
                     {t("auth.forgot_password.back_to_login")}
                   </Link>
@@ -117,7 +117,7 @@ const ForgotPasswordPage = () => {
                       setSuccess(false);
                       setEmail("");
                     }}
-                    className="w-full py-3 px-4 border border-gray-600 rounded-xl text-gray-300 hover:bg-gray-700/50 transition-colors"
+                    className="w-full py-3 px-4 border border-gray-600 rounded-xl text-gray-300 hover:bg-gray-700/50 transition-colors cursor-pointer"
                   >
                     {t("auth.forgot_password.resend_email")}
                   </button>
@@ -156,7 +156,7 @@ const ForgotPasswordPage = () => {
             <div className="mb-6">
               <Link
                 href="/login"
-                className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors cursor-pointer"
               >
                 <ArrowLeft className="h-4 w-4" />
                 {t("auth.forgot_password.back_to_login")}
@@ -210,7 +210,7 @@ const ForgotPasswordPage = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className={`w-full py-3 px-4 rounded-xl font-medium transition-colors ${
+                className={`w-full py-3 px-4 rounded-xl font-medium transition-colors cursor-pointer ${
                   isLoading
                     ? "bg-gray-600 text-gray-400 cursor-not-allowed"
                     : "bg-blue-600 hover:bg-blue-700 text-white"
@@ -233,7 +233,7 @@ const ForgotPasswordPage = () => {
                 {t("auth.forgot_password.remember_password")}{" "}
                 <Link
                   href="/login"
-                  className="text-blue-400 hover:text-blue-300 transition-colors font-medium"
+                  className="text-blue-400 hover:text-blue-300 transition-colors cursor-pointer font-medium"
                 >
                   {t("auth.forgot_password.sign_in")}
                 </Link>
