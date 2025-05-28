@@ -101,7 +101,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">{t("contact.email")}</h3>
-                    <p className="text-gray-300">support@negociation-coach.com</p>
+                    <p className="text-gray-300">***</p>
                     <p className="text-gray-400 text-sm">{t("contact.email_response")}</p>
                   </div>
                 </div>

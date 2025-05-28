@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+import Image from "next/image"
 import { useState, useEffect } from "react"
 import { useParams, useRouter } from "next/navigation"
 import { Forward, ListCollapse, SquarePen, Paperclip } from "lucide-react"
@@ -366,9 +367,10 @@ const ChatPage = () => {
           {/* Logo + Session Title */}
           <div className="flex items-center gap-4">
             {/* Espace réservé pour le logo */}
-            <div className="w-10 h-10 bg-gray-700/50 border border-gray-600 rounded-xl flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center">
               {/* TODO: Remplacer par le logo */}
-              <div className="w-6 h-6 bg-blue-500 rounded-md"></div>
+              {/* <div className="w-6 h-6 bg-blue-500 rounded-md"></div> */}
+              <Image src="/logo.png" alt="Logo" width={32} height={32} className="hidden md:block" />
             </div>
 
             {/* Titre de la session */}

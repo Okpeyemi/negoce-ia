@@ -117,7 +117,7 @@
       "new_chat": "Nouvelle discussion"
     },
     "features": {
-      "title": "Pourquoi choisir Négociation Coach ?",
+      "title": "Pourquoi choisir NegoceIA ?",
       "subtitle": "Une approche révolutionnaire pour développer vos compétences de négociation grâce à l'intelligence artificielle.",
       "realistic_simulations": {
         "title": "Simulations Réalistes",
@@ -155,7 +155,7 @@
       "increased_confidence": "Confiance renforcée dans vos interactions",
       "adapted_techniques": "Techniques adaptées à votre personnalité",
       "real_time_tracking": "Suivi de vos progrès en temps réel",
-      "testimonial": "Grâce à Négociation Coach, j'ai augmenté mon taux de closing de 40% en seulement 2 mois. L'IA m'a aidé à identifier mes faiblesses et à les transformer en forces.",
+      "testimonial": "Grâce à NegoceIA, j'ai augmenté mon taux de closing de 40% en seulement 2 mois. L'IA m'a aidé à identifier mes faiblesses et à les transformer en forces.",
       "testimonial_author": "Sarah M., Directrice commerciale"
     },
     "cta": {
@@ -182,7 +182,7 @@
     }
   },
   "chat": {
-    "title": "Négociation Coach",
+    "title": "NegoceIA",
     "subtitle": "Votre assistant IA pour perfectionner vos négociations",
     "placeholder_initial": "Décrivez votre projet ou idée de négociation...",
     "placeholder_continue": "Continuez la conversation...",
@@ -233,7 +233,7 @@
   },
   "help": {
     "title": "Centre d'aide",
-    "subtitle": "Trouvez rapidement les réponses à vos questions et apprenez à tirer le meilleur parti de Négociation Coach.",
+    "subtitle": "Trouvez rapidement les réponses à vos questions et apprenez à tirer le meilleur parti de NegoceIA.",
     "search_placeholder": "Rechercher dans l'aide...",
     "quick_guides": "Guides rapides",
     "faq": "Questions fréquentes",
@@ -261,7 +261,7 @@
     },
     "faq_items": {
       "getting_started": {
-        "question": "Comment commencer avec Négociation Coach ?",
+        "question": "Comment commencer avec NegoceIA ?",
         "answer": "Créez simplement un compte gratuit, puis lancez votre première conversation. Notre IA vous guidera à travers le processus et s'adaptera à vos besoins spécifiques."
       },
       "privacy": {
@@ -325,7 +325,7 @@
   },
   "privacy": {
     "title": "Politique de confidentialité",
-    "subtitle": "Chez Négociation Coach, nous prenons la protection de vos données personnelles très au sérieux. Cette politique explique comment nous collectons, utilisons et protégeons vos informations.",
+    "subtitle": "Chez NegoceIA, nous prenons la protection de vos données personnelles très au sérieux. Cette politique explique comment nous collectons, utilisons et protégeons vos informations.",
     "last_updated": "Dernière mise à jour :",
     "data_collected": {
       "title": "Données collectées",
@@ -364,21 +364,21 @@
     "contact": {
       "title": "Contact",
       "subtitle": "Pour toute question concernant cette politique ou vos données personnelles :",
-      "email": "Email : privacy@negociation-coach.com",
+      "email": "Email : ***",
       "form": "Formulaire de contact :"
     }
   },
   "terms": {
     "title": "Conditions d'utilisation",
-    "subtitle": "En utilisant Négociation Coach, vous acceptez les présentes conditions d'utilisation. Veuillez les lire attentivement avant d'utiliser notre service.",
+    "subtitle": "En utilisant NegoceIA, vous acceptez les présentes conditions d'utilisation. Veuillez les lire attentivement avant d'utiliser notre service.",
     "last_updated": "Dernière mise à jour :",
     "acceptance": {
       "title": "Acceptation des conditions",
-      "content": "En accédant et en utilisant Négociation Coach, vous acceptez d'être lié par ces conditions d'utilisation et notre politique de confidentialité. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser notre service."
+      "content": "En accédant et en utilisant NegoceIA, vous acceptez d'être lié par ces conditions d'utilisation et notre politique de confidentialité. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser notre service."
     },
     "service_description": {
       "title": "Description du service",
-      "subtitle": "Négociation Coach est un service qui fournit :",
+      "subtitle": "NegoceIA est un service qui fournit :",
       "ai_assistant": "Un assistant IA pour l'apprentissage de la négociation",
       "simulations": "Des simulations de négociation personnalisées",
       "advice": "Des conseils et recommandations basés sur l'IA",
@@ -403,7 +403,7 @@
     "liability": {
       "title": "Limitation de responsabilité",
       "important": "Important :",
-      "disclaimer": "Négociation Coach est un outil d'apprentissage. Les conseils fournis ne constituent pas des conseils juridiques ou financiers professionnels.",
+      "disclaimer": "NegoceIA est un outil d'apprentissage. Les conseils fournis ne constituent pas des conseils juridiques ou financiers professionnels.",
       "as_is": "Le service est fourni \"en l'état\" sans garantie",
       "accuracy": "Nous ne garantissons pas l'exactitude des conseils de l'IA",
       "own_risk": "Vous utilisez le service à vos propres risques",
@@ -412,7 +412,7 @@
     "contact": {
       "title": "Contact",
       "subtitle": "Pour toute question concernant ces conditions d'utilisation :",
-      "email": "Email : legal@negociation-coach.com",
+      "email": "Email : ***",
       "form": "Formulaire de contact :"
     }
   },

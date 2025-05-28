@@ -33,7 +33,7 @@ export default function PrivacyPage() {
           </div>
           <p className="text-xl text-gray-300 mb-4">{t("privacy.subtitle")}</p>
           <p className="text-gray-400">
-            <strong>{t("privacy.last_updated")}</strong> 15 janvier 2024
+            <strong>{t("privacy.last_updated")}</strong> 28/05/2025
           </p>
         </div>
       </section>

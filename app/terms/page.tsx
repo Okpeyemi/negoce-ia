@@ -33,7 +33,7 @@ export default function TermsPage() {
           </div>
           <p className="text-xl text-gray-300 mb-4">{t("terms.subtitle")}</p>
           <p className="text-gray-400">
-            <strong>{t("terms.last_updated")}</strong> 15 janvier 2024
+            <strong>{t("terms.last_updated")}</strong> 28/05/2025
           </p>
         </div>
       </section>
