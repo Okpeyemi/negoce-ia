@@ -28,7 +28,8 @@
     "contact": "Contact",
     "privacy": "Privacy",
     "terms": "Terms",
-    "logout": "Sign Out"
+    "logout": "Sign Out",
+    "newChat": "New Chat"
   },
   "auth": {
     "login": {
