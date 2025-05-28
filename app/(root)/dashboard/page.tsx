@@ -281,7 +281,7 @@ const Dashboard = () => {
       </div>
 
       {/* Contenu principal */}
-      <div className="pt-20 pb-6">
+      <div className="pt-40 max-md:pt-30 pb-6">
         <div className="max-w-7xl mx-auto px-6">
           {/* Stats Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
