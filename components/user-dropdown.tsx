@@ -114,15 +114,6 @@ export default function UserDropdown({ userEmail, userName, profileRole }: UserD
               {t("navigation.profile")}
             </button>
 
-            {/* Gérer l'abonnement */}
-            <button
-              onClick={handleManageSubscription}
-              className="w-full px-4 py-3 text-left text-gray-300 hover:text-white hover:bg-gray-700 transition-colors cursor-pointer flex items-center gap-3"
-            >
-              <CreditCard className="h-4 w-4" />
-              {t("navigation.manageSubscription")}
-            </button>
-
             {/* Dashboard (admin seulement) */}
             {profileRole === "admin" && (
               <button
