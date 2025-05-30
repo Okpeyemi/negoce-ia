@@ -10,7 +10,7 @@ interface SubscriptionModalProps {
   isOpen: boolean
   onClose: () => void
   userId: string
-  currentPlan?: string
+  currentPlan?: "basic" | "premium"
   onPlanUpdated: (subscriptionData: any) => void // Changer le type
 }
 
@@ -22,7 +22,7 @@ export default function SubscriptionModal({
   onPlanUpdated 
 }: SubscriptionModalProps) {
   const { t } = useI18n()
-  const [selectedPlan, setSelectedPlan] = useState<"basic" | "premium">(currentPlan as "basic" | "premium" || "basic")
+  const [selectedPlan, setSelectedPlan] = useState<"basic" | "premium">(currentPlan ?? "basic")
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   useEffect(() => {

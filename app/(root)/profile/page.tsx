@@ -417,7 +417,7 @@ const ProfilePage = () => {
           isOpen={isSubscriptionModalOpen}
           onClose={() => setIsSubscriptionModalOpen(false)}
           userId={user.id}
-          currentPlan={subscription?.plan}
+          currentPlan={subscription?.plan as "basic" | "premium" | undefined}
           onPlanUpdated={handlePlanUpdated}
         />
       )}
