@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { UserRound, User, LogOut, LayoutDashboard, MessageSquare } from "lucide-react"
+import { UserRound, MessageSquare, User, LayoutDashboard, LogOut, CreditCard } from "lucide-react"
 import { authService } from "../lib/auth"
 import { useRouter } from "next/navigation"
 import { useI18n } from "../lib/i18n/hooks"
@@ -63,6 +63,11 @@ export default function UserDropdown({ userEmail, userName, profileRole }: UserD
     router.push("/dashboard")
   }
 
+  const handleManageSubscription = () => {
+    setIsOpen(false)
+    router.push("/select-plan")
+  }
+
   return (
     <div className="relative" ref={dropdownRef}>
       {/* Bouton utilisateur */}
@@ -107,6 +112,15 @@ export default function UserDropdown({ userEmail, userName, profileRole }: UserD
             >
               <User className="h-4 w-4" />
               {t("navigation.profile")}
+            </button>
+
+            {/* Gérer l'abonnement */}
+            <button
+              onClick={handleManageSubscription}
+              className="w-full px-4 py-3 text-left text-gray-300 hover:text-white hover:bg-gray-700 transition-colors cursor-pointer flex items-center gap-3"
+            >
+              <CreditCard className="h-4 w-4" />
+              {t("navigation.manageSubscription")}
             </button>
 
             {/* Dashboard (admin seulement) */}

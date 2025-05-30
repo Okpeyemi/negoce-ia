@@ -1,19 +1,6 @@
 import { supabase } from "./supabase"
 
 export const authService = {
-  // Inscription
-  // async signUp(email: string, password: string, fullName: string) {
-  //   const { data, error } = await supabase.auth.signUp({
-  //     email,
-  //     password,
-  //     options: {
-  //       data: {
-  //         full_name: fullName,
-  //       },
-  //     },
-  //   })
-  //   return { data, error }
-  // },
 
   // Connexion
   async signIn(email: string, password: string) {
@@ -21,6 +8,16 @@ export const authService = {
       email,
       password,
     })
+
+    // Si la connexion réussit, créer automatiquement une souscription basic
+    if (!error && data.user) {
+      const { error: connexionError } = await this.createSubscription(data.user.id, "basic");
+      if (connexionError) {
+        console.error("Erreur lors de la création de la souscription par défaut:", connexionError);
+        // Ne pas faire échouer la connexion pour autant
+      }
+    }
+
     return { data, error }
   },
 
@@ -72,7 +69,21 @@ export const authService = {
     return { data, error };
   },
 
-  // Inscription (mise à jour pour inclure la création de la souscription)
+  async updateSubscription(userId: string, plan: "basic" | "premium") {
+    const { data, error } = await supabase
+    .from("subscriptions")
+    .update({
+      plan: plan,
+      updated_at: new Date().toISOString(),
+    })
+    .eq("user_id", userId)
+    .select()
+    .single()
+
+    return { data, error }
+  },
+
+  // Inscription avec création automatique de souscription basic
   async signUp(email: string, password: string, fullName: string) {
     const { data, error } = await supabase.auth.signUp({
       email,
@@ -84,21 +95,10 @@ export const authService = {
       },
     });
 
-    // Si l'inscription réussit, créer une souscription "free"
-    if (!error && data.user) {
-      const { error: subError } = await authService.createDefaultSubscription(
-        data.user.id
-      );
-      if (subError) {
-        console.error("Erreur lors de la création de la souscription:", subError);
-        // Optionnel : tu peux gérer cette erreur comme tu veux
-      }
-    }
-
     return { data, error };
   },
 
-  // Connexion avec Google
+  // Connexion avec Google (sans création automatique)
   async signInWithGoogle() {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "google",
@@ -111,23 +111,25 @@ export const authService = {
       },
     })
 
-    // Si la connexion OAuth réussit, vérifier et créer une souscription si nécessaire
-    if (!error && data) {
-      const { user } = await authService.getCurrentUser();
-      if (user) {
-        const { data: subscription, error: subError } = await supabase
-          .from("subscriptions")
-          .select("*")
-          .eq("user_id", user.id)
-          .single();
-
-        if (!subscription && !subError) {
-          await authService.createDefaultSubscription(user.id);
-        }
-      }
-    }
-
+    // Supprimer la création automatique de souscription
     return { data, error }
+  },
+
+  // Modifier la fonction pour accepter le plan choisi
+  async createSubscription(userId: string, plan: "basic" | "premium") {
+    const { data, error } = await supabase
+      .from("subscriptions")
+      .insert({
+        user_id: userId,
+        plan: plan,
+        status: "active",
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+      })
+      .select()
+      .single();
+
+    return { data, error };
   },
 
   // Récupérer l'utilisateur actuel
