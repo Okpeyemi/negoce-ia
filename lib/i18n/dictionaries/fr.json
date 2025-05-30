@@ -229,7 +229,19 @@
     "success": "Profil mis à jour avec succès !",
     "error": "Erreur lors de la mise à jour du profil",
     "admin": "Administrateur",
-    "user": "Utilisateur"
+    "user": "Utilisateur",
+    "subscription": {
+      "title": "Abonnement",
+      "manage": "Modifier le plan",
+      "current_plan": "Plan actuel",
+      "status": "Statut",
+      "active": "Actif",
+      "inactive": "Inactif",
+      "undefined": "Non défini",
+      "expires_on": "Expire le",
+      "updated_success": "Plan mis à jour avec succès !",
+      "coming_soon": "Bientôt disponible"
+    }
   },
   "help": {
     "title": "Centre d'aide",
@@ -441,5 +453,39 @@
     },
     "sort_by_role": "Trier par rôle",
     "sorted_by_role": "Trié par rôle"
+  },
+  "subscription": {
+    "modal": {
+      "title": "Gérer votre abonnement",
+      "current_plan": "Plan actuel :",
+      "updating": "Mise à jour...",
+      "already_selected": "Plan déjà sélectionné",
+      "switch_to": "Passer au plan {{plan}}",
+      "select_plan": "Sélectionnez un plan"
+    },
+    "plans": {
+      "basic": {
+        "name": "Plan Gratuit",
+        "price": "0€",
+        "features": {
+          "messages": "10 messages par jour",
+          "models": "Modèles de base",
+          "support": "Support communautaire"
+        }
+      },
+      "premium": {
+        "name": "Plan Premium",
+        "price": "9€",
+        "features": {
+          "messages": "Messages illimités",
+          "models": "Tous les modèles IA",
+          "support": "Support prioritaire",
+          "advanced": "Fonctionnalités avancées"
+        }
+      }
+    },
+    "current": "Actuel",
+    "popular": "Populaire",
+    "per_month": "/mois"
   }
 }
