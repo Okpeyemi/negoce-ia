@@ -3,11 +3,13 @@
 import type React from "react"
 import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
-import { ArrowLeft, User, Mail, Save, Camera } from "lucide-react"
+import { ArrowLeft, User, Mail, Save, Camera, CreditCard } from "lucide-react"
 import { authService } from "../../../lib/auth"
 import { useI18n } from "../../../lib/i18n/hooks"
 import LanguageSwitcher from "../../../components/language-switcher"
 import UserDropdown from "../../../components/user-dropdown"
+import SubscriptionModal from "../../../components/subscription-modal"
+import { supabase } from "../../../lib/supabase"
 
 interface ProfileData {
   id: string
@@ -17,12 +19,19 @@ interface ProfileData {
   role?: string
 }
 
+interface Subscription {
+  plan: string
+  status: string
+}
+
 const ProfilePage = () => {
   const { t, isLoading: i18nLoading } = useI18n()
   const router = useRouter()
   const [user, setUser] = useState<ProfileData | null>(null)
+  const [subscription, setSubscription] = useState<Subscription | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [isSaving, setIsSaving] = useState(false)
+  const [isSubscriptionModalOpen, setIsSubscriptionModalOpen] = useState(false)
   const [formData, setFormData] = useState({
     full_name: "",
     email: "",
@@ -59,6 +68,18 @@ const ProfilePage = () => {
           full_name: userData.full_name,
           email: userData.email,
         })
+
+        // Charger la souscription
+        const { data: subscriptionData } = await supabase
+          .from("subscriptions")
+          .select("plan, status")
+          .eq("user_id", currentUser.id)
+          .single()
+
+        if (subscriptionData) {
+          setSubscription(subscriptionData)
+        }
+
       } catch (error) {
         console.error("Erreur lors du chargement des données:", error)
         router.push("/login")
@@ -138,6 +159,11 @@ const ProfilePage = () => {
   const handleAvatarClick = () => {
     // TODO: Implémenter l'upload d'avatar
     console.log("Upload d'avatar à implémenter")
+  }
+
+  const handlePlanUpdated = (newPlan: string) => {
+    setSubscription(prev => prev ? { ...prev, plan: newPlan } : { plan: newPlan, status: "active" })
+    setSuccessMessage("Plan mis à jour avec succès !")
   }
 
   // Afficher un loader pendant le chargement
@@ -293,6 +319,37 @@ const ProfilePage = () => {
               </div>
             </div>
 
+            {/* Subscription Info */}
+            <div className="bg-gray-700/30 rounded-xl p-4 border border-gray-600">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-white font-medium">Abonnement</h3>
+                <button
+                  type="button"
+                  onClick={() => setIsSubscriptionModalOpen(true)}
+                  className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors text-sm font-medium"
+                >
+                  <CreditCard className="h-4 w-4" />
+                  Modifier le plan
+                </button>
+              </div>
+              <div className="space-y-2 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Plan actuel</span>
+                  <span className="text-gray-300">
+                    {subscription?.plan === "basic" ? "Gratuit" : subscription?.plan === "premium" ? "Premium" : "Non défini"}
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Statut</span>
+                  <span className={`text-sm font-medium ${
+                    subscription?.status === "active" ? "text-green-400" : "text-yellow-400"
+                  }`}>
+                    {subscription?.status === "active" ? "Actif" : subscription?.status || "Inactif"}
+                  </span>
+                </div>
+              </div>
+            </div>
+
             {/* Submit Button */}
             <div className="flex max-sm:flex-col gap-4 pt-4">
               <button
@@ -325,6 +382,17 @@ const ProfilePage = () => {
           </form>
         </div>
       </div>
+
+      {/* Subscription Modal */}
+      {user && (
+        <SubscriptionModal
+          isOpen={isSubscriptionModalOpen}
+          onClose={() => setIsSubscriptionModalOpen(false)}
+          userId={user.id}
+          currentPlan={subscription?.plan}
+          onPlanUpdated={handlePlanUpdated}
+        />
+      )}
     </div>
   )
 }
