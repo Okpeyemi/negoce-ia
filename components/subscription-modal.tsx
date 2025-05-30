@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react"
 import { Check, X } from "lucide-react"
 import { authService } from "@/lib/auth"
-import { supabase } from "@/lib/supabase"
 import { useI18n } from "@/lib/i18n/hooks"
 
 interface SubscriptionModalProps {
