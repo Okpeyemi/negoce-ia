@@ -239,7 +239,8 @@
       "inactive": "Inactive", 
       "undefined": "Undefined",
       "expires_on": "Expires on",
-      "updated_success": "Plan updated successfully!"
+      "updated_success": "Plan updated successfully!",
+      "coming_soon": "Coming soon"
     }
   },
   "help": {

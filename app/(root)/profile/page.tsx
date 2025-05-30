@@ -324,13 +324,22 @@ const ProfilePage = () => {
             <div className="bg-gray-700/30 rounded-xl p-4 border border-gray-600">
               <div className="flex items-center justify-between mb-3">
                 <h3 className="text-white font-medium">{t("profile.subscription.title")}</h3>
-                <button
+                {/* <button
                   type="button"
                   onClick={() => setIsSubscriptionModalOpen(true)}
                   className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors text-sm font-medium"
                 >
                   <CreditCard className="h-4 w-4" />
                   {t("profile.subscription.manage")}
+                </button> */}
+                <button
+                  type="button"
+                  disabled
+                  className="flex items-center gap-2 px-4 py-2 bg-gray-600 text-gray-400 rounded-lg text-sm font-medium cursor-not-allowed opacity-75"
+                  title={t("profile.subscription.coming_soon")}
+                >
+                  <CreditCard className="h-4 w-4" />
+                  {t("profile.subscription.coming_soon")}
                 </button>
               </div>
               <div className="space-y-2 text-sm">
