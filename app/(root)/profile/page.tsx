@@ -22,6 +22,7 @@ interface ProfileData {
 interface Subscription {
   plan: string
   status: string
+  expires_at: string
 }
 
 const ProfilePage = () => {
@@ -72,7 +73,7 @@ const ProfilePage = () => {
         // Charger la souscription
         const { data: subscriptionData } = await supabase
           .from("subscriptions")
-          .select("plan, status")
+          .select("plan, status, expires_at")
           .eq("user_id", currentUser.id)
           .single()
 
@@ -161,8 +162,8 @@ const ProfilePage = () => {
     console.log("Upload d'avatar à implémenter")
   }
 
-  const handlePlanUpdated = (newPlan: string) => {
-    setSubscription(prev => prev ? { ...prev, plan: newPlan } : { plan: newPlan, status: "active" })
+  const handlePlanUpdated = (subscriptionData: any) => {
+    setSubscription(subscriptionData) // Utiliser directement les données complètes
     setSuccessMessage("Plan mis à jour avec succès !")
   }
 
@@ -347,6 +348,18 @@ const ProfilePage = () => {
                     {subscription?.status === "active" ? "Actif" : subscription?.status || "Inactif"}
                   </span>
                 </div>
+                {subscription?.plan === "premium" && subscription?.expires_at && (
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">Expire le</span>
+                    <span className="text-gray-300">
+                      {new Date(subscription.expires_at).toLocaleDateString("fr-FR", {
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric"
+                      })}
+                    </span>
+                  </div>
+                )}
               </div>
             </div>
 

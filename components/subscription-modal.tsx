@@ -11,7 +11,7 @@ interface SubscriptionModalProps {
   onClose: () => void
   userId: string
   currentPlan?: string
-  onPlanUpdated: (newPlan: string) => void
+  onPlanUpdated: (subscriptionData: any) => void // Changer le type
 }
 
 export default function SubscriptionModal({ 
@@ -46,8 +46,9 @@ export default function SubscriptionModal({
       }
 
       if (data) {
-        onPlanUpdated(selectedPlan)
+        onPlanUpdated(data)
         onClose()
+
       }
     } catch (error) {
       console.error("Erreur:", error)

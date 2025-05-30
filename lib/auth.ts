@@ -70,15 +70,27 @@ export const authService = {
   },
 
   async updateSubscription(userId: string, plan: "basic" | "premium") {
-    const { data, error } = await supabase
-    .from("subscriptions")
-    .update({
+    const updateData: any = {
       plan: plan,
       updated_at: new Date().toISOString(),
-    })
-    .eq("user_id", userId)
-    .select()
-    .single()
+    }
+
+    // Si le plan est premium, définir une date d'expiration à 30 jours
+    if (plan === "premium") {
+      const expirationDate = new Date()
+      expirationDate.setDate(expirationDate.getDate() + 30)
+      updateData.expires_at = expirationDate.toISOString()
+    } else {
+      // Pour les plans basic/free, pas d'expiration
+      updateData.expires_at = null
+    }
+
+    const { data, error } = await supabase
+      .from("subscriptions")
+      .update(updateData)
+      .eq("user_id", userId)
+      .select()
+      .single()
 
     return { data, error }
   },
