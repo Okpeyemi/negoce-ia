@@ -164,7 +164,7 @@ const ProfilePage = () => {
 
   const handlePlanUpdated = (subscriptionData: any) => {
     setSubscription(subscriptionData) // Utiliser directement les données complètes
-    setSuccessMessage("Plan mis à jour avec succès !")
+    setSuccessMessage(t("profile.subscription.updated_success"))
   }
 
   // Afficher un loader pendant le chargement
@@ -323,34 +323,40 @@ const ProfilePage = () => {
             {/* Subscription Info */}
             <div className="bg-gray-700/30 rounded-xl p-4 border border-gray-600">
               <div className="flex items-center justify-between mb-3">
-                <h3 className="text-white font-medium">Abonnement</h3>
+                <h3 className="text-white font-medium">{t("profile.subscription.title")}</h3>
                 <button
                   type="button"
                   onClick={() => setIsSubscriptionModalOpen(true)}
                   className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors text-sm font-medium"
                 >
                   <CreditCard className="h-4 w-4" />
-                  Modifier le plan
+                  {t("profile.subscription.manage")}
                 </button>
               </div>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Plan actuel</span>
+                  <span className="text-gray-400">{t("profile.subscription.current_plan")}</span>
                   <span className="text-gray-300">
-                    {subscription?.plan === "basic" ? "Gratuit" : subscription?.plan === "premium" ? "Premium" : "Non défini"}
+                    {subscription?.plan === "basic" 
+                      ? t("subscription.plans.basic.name") 
+                      : subscription?.plan === "premium" 
+                      ? t("subscription.plans.premium.name") 
+                      : t("profile.subscription.undefined")}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Statut</span>
+                  <span className="text-gray-400">{t("profile.subscription.status")}</span>
                   <span className={`text-sm font-medium ${
                     subscription?.status === "active" ? "text-green-400" : "text-yellow-400"
                   }`}>
-                    {subscription?.status === "active" ? "Actif" : subscription?.status || "Inactif"}
+                    {subscription?.status === "active" 
+                      ? t("profile.subscription.active") 
+                      : subscription?.status || t("profile.subscription.inactive")}
                   </span>
                 </div>
                 {subscription?.plan === "premium" && subscription?.expires_at && (
                   <div className="flex justify-between">
-                    <span className="text-gray-400">Expire le</span>
+                    <span className="text-gray-400">{t("profile.subscription.expires_on")}</span>
                     <span className="text-gray-300">
                       {new Date(subscription.expires_at).toLocaleDateString("fr-FR", {
                         day: "numeric",

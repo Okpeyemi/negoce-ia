@@ -66,7 +66,7 @@ export default function SubscriptionModal({
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-700">
           <h2 className="text-2xl font-bold text-white">
-            Gérer votre abonnement
+            {t("subscription.modal.title")}
           </h2>
           <button
             onClick={onClose}
@@ -80,8 +80,8 @@ export default function SubscriptionModal({
         <div className="p-6">
           {currentPlan && (
             <p className="text-center text-gray-400 mb-6">
-              Plan actuel : <span className="text-white font-medium">
-                {currentPlan === "basic" ? "Gratuit" : "Premium"}
+              {t("subscription.modal.current_plan")} <span className="text-white font-medium">
+                {currentPlan === "basic" ? t("subscription.plans.basic.name") : t("subscription.plans.premium.name")}
               </span>
             </p>
           )}
@@ -99,10 +99,10 @@ export default function SubscriptionModal({
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
-                  <h3 className="text-xl font-semibold text-white">Plan Gratuit</h3>
+                  <h3 className="text-xl font-semibold text-white">{t("subscription.plans.basic.name")}</h3>
                   {currentPlan === "basic" && (
                     <span className="text-xs bg-green-600 text-white px-2 py-1 rounded-full">
-                      Actuel
+                      {t("subscription.current")}
                     </span>
                   )}
                 </div>
@@ -113,20 +113,20 @@ export default function SubscriptionModal({
                 )}
               </div>
               <p className="text-3xl font-bold text-white mb-4">
-                0€<span className="text-sm font-normal text-gray-400">/mois</span>
+                {t("subscription.plans.basic.price")}<span className="text-sm font-normal text-gray-400">{t("subscription.per_month")}</span>
               </p>
               <ul className="space-y-3 text-gray-300">
                 <li className="flex items-center gap-3">
                   <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span>10 messages par jour</span>
+                  <span>{t("subscription.plans.basic.features.messages")}</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span>Modèles de base</span>
+                  <span>{t("subscription.plans.basic.features.models")}</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span>Support communautaire</span>
+                  <span>{t("subscription.plans.basic.features.support")}</span>
                 </li>
               </ul>
             </div>
@@ -143,16 +143,16 @@ export default function SubscriptionModal({
               {/* Badge Populaire */}
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                 <div className="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
-                  Populaire
+                  {t("subscription.popular")}
                 </div>
               </div>
               
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
-                  <h3 className="text-xl font-semibold text-white">Plan Premium</h3>
+                  <h3 className="text-xl font-semibold text-white">{t("subscription.plans.premium.name")}</h3>
                   {currentPlan === "premium" && (
                     <span className="text-xs bg-green-600 text-white px-2 py-1 rounded-full">
-                      Actuel
+                      {t("subscription.current")}
                     </span>
                   )}
                 </div>
@@ -163,24 +163,24 @@ export default function SubscriptionModal({
                 )}
               </div>
               <p className="text-3xl font-bold text-white mb-4">
-                9€<span className="text-sm font-normal text-gray-400">/mois</span>
+                {t("subscription.plans.premium.price")}<span className="text-sm font-normal text-gray-400">{t("subscription.per_month")}</span>
               </p>
               <ul className="space-y-3 text-gray-300">
                 <li className="flex items-center gap-3">
                   <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span>Messages illimités</span>
+                  <span>{t("subscription.plans.premium.features.messages")}</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span>Tous les modèles IA</span>
+                  <span>{t("subscription.plans.premium.features.models")}</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span>Support prioritaire</span>
+                  <span>{t("subscription.plans.premium.features.support")}</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span>Fonctionnalités avancées</span>
+                  <span>{t("subscription.plans.premium.features.advanced")}</span>
                 </li>
               </ul>
             </div>
@@ -192,7 +192,7 @@ export default function SubscriptionModal({
               onClick={onClose}
               className="px-6 py-3 text-gray-300 hover:text-white transition-colors"
             >
-              Annuler
+              {t("common.cancel")}
             </button>
             <button
               onClick={handleSubmit}
@@ -206,14 +206,16 @@ export default function SubscriptionModal({
               {isSubmitting ? (
                 <div className="flex items-center justify-center gap-2">
                   <div className="w-5 h-5 border-2 border-gray-400 border-t-transparent rounded-full animate-spin"></div>
-                  Mise à jour...
+                  {t("subscription.modal.updating")}
                 </div>
               ) : !isPlanChanged ? (
-                "Plan déjà sélectionné"
+                t("subscription.modal.already_selected")
               ) : selectedPlan ? (
-                `Passer au plan ${selectedPlan === "basic" ? "Gratuit" : "Premium"}`
+                t("subscription.modal.switch_to", { 
+                  plan: selectedPlan === "basic" ? t("subscription.plans.basic.name") : t("subscription.plans.premium.name")
+                })
               ) : (
-                "Sélectionnez un plan"
+                t("subscription.modal.select_plan")
               )}
             </button>
           </div>
