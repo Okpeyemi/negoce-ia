@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { UserRound, User, LogOut, LayoutDashboard, MessageSquare } from "lucide-react"
+import { UserRound, MessageSquare, User, LayoutDashboard, LogOut, CreditCard } from "lucide-react"
 import { authService } from "../lib/auth"
 import { useRouter } from "next/navigation"
 import { useI18n } from "../lib/i18n/hooks"
@@ -61,6 +61,11 @@ export default function UserDropdown({ userEmail, userName, profileRole }: UserD
   const handleDashboard = () => {
     setIsOpen(false)
     router.push("/dashboard")
+  }
+
+  const handleManageSubscription = () => {
+    setIsOpen(false)
+    router.push("/select-plan")
   }
 
   return (

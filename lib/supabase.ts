@@ -30,3 +30,13 @@ export type Message = {
   role: "user" | "assistant"
   created_at: string
 }
+
+export type Subscription = {
+  id: string
+  user_id: string
+  plan: "basic" | "premium"
+  status: "active"
+  expires_at: string | null
+  created_at: string
+  updated_at: string
+}

@@ -3,11 +3,13 @@
 import type React from "react"
 import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
-import { ArrowLeft, User, Mail, Save, Camera } from "lucide-react"
+import { ArrowLeft, User, Mail, Save, Camera, CreditCard } from "lucide-react"
 import { authService } from "../../../lib/auth"
 import { useI18n } from "../../../lib/i18n/hooks"
 import LanguageSwitcher from "../../../components/language-switcher"
 import UserDropdown from "../../../components/user-dropdown"
+import SubscriptionModal from "../../../components/subscription-modal"
+import { supabase } from "../../../lib/supabase"
 
 interface ProfileData {
   id: string
@@ -17,12 +19,20 @@ interface ProfileData {
   role?: string
 }
 
+interface Subscription {
+  plan: string
+  status: string
+  expires_at: string
+}
+
 const ProfilePage = () => {
   const { t, isLoading: i18nLoading } = useI18n()
   const router = useRouter()
   const [user, setUser] = useState<ProfileData | null>(null)
+  const [subscription, setSubscription] = useState<Subscription | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [isSaving, setIsSaving] = useState(false)
+  const [isSubscriptionModalOpen, setIsSubscriptionModalOpen] = useState(false)
   const [formData, setFormData] = useState({
     full_name: "",
     email: "",
@@ -59,6 +69,18 @@ const ProfilePage = () => {
           full_name: userData.full_name,
           email: userData.email,
         })
+
+        // Charger la souscription
+        const { data: subscriptionData } = await supabase
+          .from("subscriptions")
+          .select("plan, status, expires_at")
+          .eq("user_id", currentUser.id)
+          .single()
+
+        if (subscriptionData) {
+          setSubscription(subscriptionData)
+        }
+
       } catch (error) {
         console.error("Erreur lors du chargement des données:", error)
         router.push("/login")
@@ -138,6 +160,11 @@ const ProfilePage = () => {
   const handleAvatarClick = () => {
     // TODO: Implémenter l'upload d'avatar
     console.log("Upload d'avatar à implémenter")
+  }
+
+  const handlePlanUpdated = (subscriptionData: any) => {
+    setSubscription(subscriptionData) // Utiliser directement les données complètes
+    setSuccessMessage(t("profile.subscription.updated_success"))
   }
 
   // Afficher un loader pendant le chargement
@@ -293,6 +320,64 @@ const ProfilePage = () => {
               </div>
             </div>
 
+            {/* Subscription Info */}
+            <div className="bg-gray-700/30 rounded-xl p-4 border border-gray-600">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-white font-medium">{t("profile.subscription.title")}</h3>
+                {/* <button
+                  type="button"
+                  onClick={() => setIsSubscriptionModalOpen(true)}
+                  className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors text-sm font-medium"
+                >
+                  <CreditCard className="h-4 w-4" />
+                  {t("profile.subscription.manage")}
+                </button> */}
+                <button
+                  type="button"
+                  disabled
+                  className="flex items-center gap-2 px-4 py-2 bg-gray-600 text-gray-400 rounded-lg text-sm font-medium cursor-not-allowed opacity-75"
+                  title={t("profile.subscription.coming_soon")}
+                >
+                  <CreditCard className="h-4 w-4" />
+                  {t("profile.subscription.coming_soon")}
+                </button>
+              </div>
+              <div className="space-y-2 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-gray-400">{t("profile.subscription.current_plan")}</span>
+                  <span className="text-gray-300">
+                    {subscription?.plan === "basic" 
+                      ? t("subscription.plans.basic.name") 
+                      : subscription?.plan === "premium" 
+                      ? t("subscription.plans.premium.name") 
+                      : t("profile.subscription.undefined")}
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">{t("profile.subscription.status")}</span>
+                  <span className={`text-sm font-medium ${
+                    subscription?.status === "active" ? "text-green-400" : "text-yellow-400"
+                  }`}>
+                    {subscription?.status === "active" 
+                      ? t("profile.subscription.active") 
+                      : subscription?.status || t("profile.subscription.inactive")}
+                  </span>
+                </div>
+                {subscription?.plan === "premium" && subscription?.expires_at && (
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">{t("profile.subscription.expires_on")}</span>
+                    <span className="text-gray-300">
+                      {new Date(subscription.expires_at).toLocaleDateString("fr-FR", {
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric"
+                      })}
+                    </span>
+                  </div>
+                )}
+              </div>
+            </div>
+
             {/* Submit Button */}
             <div className="flex max-sm:flex-col gap-4 pt-4">
               <button
@@ -325,6 +410,17 @@ const ProfilePage = () => {
           </form>
         </div>
       </div>
+
+      {/* Subscription Modal */}
+      {user && (
+        <SubscriptionModal
+          isOpen={isSubscriptionModalOpen}
+          onClose={() => setIsSubscriptionModalOpen(false)}
+          userId={user.id}
+          currentPlan={subscription?.plan as "basic" | "premium" | undefined}
+          onPlanUpdated={handlePlanUpdated}
+        />
+      )}
     </div>
   )
 }

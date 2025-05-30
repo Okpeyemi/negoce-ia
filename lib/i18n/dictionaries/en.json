@@ -229,7 +229,19 @@
     "success": "Profile updated successfully!",
     "error": "Error updating profile",
     "admin": "Administrator",
-    "user": "User"
+    "user": "User",
+    "subscription": {
+      "title": "Subscription",
+      "manage": "Manage Plan",
+      "current_plan": "Current Plan",
+      "status": "Status",
+      "active": "Active",
+      "inactive": "Inactive", 
+      "undefined": "Undefined",
+      "expires_on": "Expires on",
+      "updated_success": "Plan updated successfully!",
+      "coming_soon": "Coming soon"
+    }
   },
   "help": {
     "title": "Help Center",
@@ -441,5 +453,39 @@
     },
     "sort_by_role": "Sort by role",
     "sorted_by_role": "Sorted by role"
+  },
+  "subscription": {
+    "modal": {
+      "title": "Manage your subscription",
+      "current_plan": "Current plan:",
+      "updating": "Updating...",
+      "already_selected": "Plan already selected",
+      "switch_to": "Switch to {{plan}} plan",
+      "select_plan": "Select a plan"
+    },
+    "plans": {
+      "basic": {
+        "name": "Free Plan",
+        "price": "0€",
+        "features": {
+          "messages": "10 messages per day",
+          "models": "Basic models",
+          "support": "Community support"
+        }
+      },
+      "premium": {
+        "name": "Premium Plan", 
+        "price": "9€",
+        "features": {
+          "messages": "Unlimited messages",
+          "models": "All AI models",
+          "support": "Priority support",
+          "advanced": "Advanced features"
+        }
+      }
+    },
+    "current": "Current",
+    "popular": "Popular",
+    "per_month": "/month"
   }
 }

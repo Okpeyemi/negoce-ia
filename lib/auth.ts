@@ -1,43 +1,45 @@
-import { supabase } from "./supabase"
+import { supabase } from "./supabase";
 
 export const authService = {
-  // Inscription
-  // async signUp(email: string, password: string, fullName: string) {
-  //   const { data, error } = await supabase.auth.signUp({
-  //     email,
-  //     password,
-  //     options: {
-  //       data: {
-  //         full_name: fullName,
-  //       },
-  //     },
-  //   })
-  //   return { data, error }
-  // },
-
   // Connexion
   async signIn(email: string, password: string) {
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
-    })
-    return { data, error }
+    });
+
+    // Si la connexion réussit, créer automatiquement une souscription basic
+    if (!error && data.user) {
+      const { error: connexionError } = await this.createSubscription(
+        data.user.id,
+        "basic"
+      );
+      if (connexionError) {
+        console.error(
+          "Erreur lors de la création de la souscription par défaut:",
+          connexionError
+        );
+        // Ne pas faire échouer la connexion pour autant
+      }
+    }
+
+    return { data, error };
   },
 
   // Reset de mot de passe
   async resetPassword(email: string) {
     const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
       redirectTo: `${window.location.origin}/reset-password`,
-    })
-    return { data, error }
+    });
+    return { data, error };
   },
 
   // Mettre à jour le mot de passe
   async updatePassword(newPassword: string) {
     const { data, error } = await supabase.auth.updateUser({
       password: newPassword,
-    })
-    return { data, error }
+    });
+    return { data, error };
   },
 
   // Vérifier si l'utilisateur a une session valide
@@ -45,14 +47,14 @@ export const authService = {
     const {
       data: { session },
       error,
-    } = await supabase.auth.getSession()
-    return { session, error }
+    } = await supabase.auth.getSession();
+    return { session, error };
   },
 
   // Déconnexion
   async signOut() {
-    const { error } = await supabase.auth.signOut()
-    return { error }
+    const { error } = await supabase.auth.signOut();
+    return { error };
   },
 
   // Créer une souscription par défaut
@@ -72,7 +74,38 @@ export const authService = {
     return { data, error };
   },
 
-  // Inscription (mise à jour pour inclure la création de la souscription)
+  async updateSubscription(userId: string, plan: "basic" | "premium") {
+    interface SubscriptionUpdateData {
+      plan: "basic" | "premium";
+      updated_at: string;
+      expires_at: string | null;
+    }
+    const updateData: SubscriptionUpdateData = {
+      plan: plan,
+      updated_at: new Date().toISOString(),
+      expires_at: null, // Default value
+    };
+    // Si le plan est premium, définir une date d'expiration à 30 jours
+    if (plan === "premium") {
+      const expirationDate = new Date();
+      expirationDate.setDate(expirationDate.getDate() + 30);
+      updateData.expires_at = expirationDate.toISOString();
+    } else {
+      // Pour les plans basic/free, pas d'expiration
+      updateData.expires_at = null;
+    }
+
+    const { data, error } = await supabase
+      .from("subscriptions")
+      .update(updateData)
+      .eq("user_id", userId)
+      .select()
+      .single();
+
+    return { data, error };
+  },
+
+  // Inscription avec création automatique de souscription basic
   async signUp(email: string, password: string, fullName: string) {
     const { data, error } = await supabase.auth.signUp({
       email,
@@ -84,21 +117,10 @@ export const authService = {
       },
     });
 
-    // Si l'inscription réussit, créer une souscription "free"
-    if (!error && data.user) {
-      const { error: subError } = await authService.createDefaultSubscription(
-        data.user.id
-      );
-      if (subError) {
-        console.error("Erreur lors de la création de la souscription:", subError);
-        // Optionnel : tu peux gérer cette erreur comme tu veux
-      }
-    }
-
     return { data, error };
   },
 
-  // Connexion avec Google
+  // Connexion avec Google (sans création automatique)
   async signInWithGoogle() {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "google",
@@ -109,25 +131,27 @@ export const authService = {
           prompt: "consent",
         },
       },
-    })
+    });
 
-    // Si la connexion OAuth réussit, vérifier et créer une souscription si nécessaire
-    if (!error && data) {
-      const { user } = await authService.getCurrentUser();
-      if (user) {
-        const { data: subscription, error: subError } = await supabase
-          .from("subscriptions")
-          .select("*")
-          .eq("user_id", user.id)
-          .single();
+    // Supprimer la création automatique de souscription
+    return { data, error };
+  },
 
-        if (!subscription && !subError) {
-          await authService.createDefaultSubscription(user.id);
-        }
-      }
-    }
+  // Modifier la fonction pour accepter le plan choisi
+  async createSubscription(userId: string, plan: "basic" | "premium") {
+    const { data, error } = await supabase
+      .from("subscriptions")
+      .insert({
+        user_id: userId,
+        plan: plan,
+        status: "active",
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+      })
+      .select()
+      .single();
 
-    return { data, error }
+    return { data, error };
   },
 
   // Récupérer l'utilisateur actuel
@@ -135,30 +159,37 @@ export const authService = {
     const {
       data: { user },
       error,
-    } = await supabase.auth.getUser()
-    return { user, error }
+    } = await supabase.auth.getUser();
+    return { user, error };
   },
 
   // Récupérer le profil de l'utilisateur
   async getProfile(userId: string) {
-    const { data, error } = await supabase.from("profiles").select("*").eq("id", userId).single()
-    return { data, error }
+    const { data, error } = await supabase
+      .from("profiles")
+      .select("*")
+      .eq("id", userId)
+      .single();
+    return { data, error };
   },
 
   async getAllProfiles() {
-    const { data, error } = await supabase.from("profiles").select("*")
-    return { data, error }
+    const { data, error } = await supabase.from("profiles").select("*");
+    return { data, error };
   },
 
   // Mettre à jour le profil
-  async updateProfile(userId: string, updates: Partial<{ full_name: string; avatar_url: string }>) {
+  async updateProfile(
+    userId: string,
+    updates: Partial<{ full_name: string; avatar_url: string }>
+  ) {
     const { data, error } = await supabase
       .from("profiles")
       .update({ ...updates, updated_at: new Date().toISOString() })
       .eq("id", userId)
       .select()
-      .single()
-    return { data, error }
+      .single();
+    return { data, error };
   },
 
   // Créer ou mettre à jour le profil après connexion OAuth
@@ -169,17 +200,21 @@ export const authService = {
         {
           id: user.id,
           email: user.email,
-          full_name: user.user_metadata?.full_name || user.user_metadata?.name || "",
-          avatar_url: user.user_metadata?.avatar_url || user.user_metadata?.picture || null,
+          full_name:
+            user.user_metadata?.full_name || user.user_metadata?.name || "",
+          avatar_url:
+            user.user_metadata?.avatar_url ||
+            user.user_metadata?.picture ||
+            null,
           updated_at: new Date().toISOString(),
         },
         {
           onConflict: "id",
-        },
+        }
       )
       .select()
-      .single()
+      .single();
 
-    return { data, error }
-  }
-}
+    return { data, error };
+  },
+};

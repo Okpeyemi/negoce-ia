@@ -1,9 +1,8 @@
 "use client";
 
-import type React from "react";
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
+import { authService } from "@/lib/auth";
 import {
   Eye,
   EyeOff,
@@ -11,13 +10,12 @@ import {
   Lock,
   User,
   AlertCircle,
-  MessageSquare,
 } from "lucide-react";
-import { authService } from "../../../lib/auth";
 import { useI18n } from "../../../lib/i18n/hooks";
 import LanguageSwitcher from "../../../components/language-switcher";
+import Link from "next/link";
 
-const RegisterPage = () => {
+export default function RegisterPage() {
   const { t, isLoading: i18nLoading } = useI18n();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -31,6 +29,7 @@ const RegisterPage = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   // Vérifier s'il y a une erreur dans l'URL
@@ -81,10 +80,10 @@ const RegisterPage = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     if (!validateForm()) return;
 
-    setIsLoading(true);
+    setIsSubmitting(true);
+    setErrors({});
 
     try {
       const { data, error } = await authService.signUp(
@@ -94,14 +93,19 @@ const RegisterPage = () => {
       );
 
       if (error) {
-        setErrors({ general: error.message });
+        if (error.message.includes("User already registered")) {
+          setErrors({ email: t("auth.errors.email_exists") });
+        } else {
+          setErrors({ general: error.message });
+        }
       } else if (data.user) {
-        router.push("/chat/new");
+        // Rediriger directement vers login après inscription réussie
+        router.push("/login?message=registration_complete");
       }
-    } catch (err) {
-      setErrors({ general: t("auth.errors.unexpected_error") });
+    } catch (error) {
+      setErrors({ general: t("auth.errors.unexpected") });
     } finally {
-      setIsLoading(false);
+      setIsSubmitting(false);
     }
   };
 
@@ -416,6 +420,4 @@ const RegisterPage = () => {
       </div>
     </div>
   );
-};
-
-export default RegisterPage;
+}
