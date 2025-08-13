@@ -38,7 +38,7 @@ Application Next.js moderne (App Router) en TypeScript, prête pour la mise en p
 
 ## Aperçu 👀
 
-Négocé IA est une base Next.js 15 utilisant le routeur App, React 19 et Tailwind CSS 4, pensée pour accélérer la construction d’une application web moderne autour de la visualisation/interaction et d’une possible intégration de données via Supabase. Elle s’appuie sur les bonnes pratiques de l’écosystème Vercel pour un déploiement rapide. ✨
+Negoce IA est une base Next.js 15 utilisant le routeur App, React 19 et Tailwind CSS 4, pensée pour accélérer la construction d’une application web moderne autour de la visualisation/interaction et d’une possible intégration de données via Supabase. Elle s’appuie sur les bonnes pratiques de l’écosystème Vercel pour un déploiement rapide. ✨
 
 ---
 
